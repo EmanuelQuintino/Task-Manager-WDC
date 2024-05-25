@@ -1,19 +1,9 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { App } from "../pages/App";
-import { Page404 } from "../pages/Page404";
+import { RouterProvider } from "react-router-dom";
+import { appRouter } from "./app.routes";
+import { authRouter } from "./auth.routes";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    errorElement: <Page404 />,
-    children: [
-      { path: "/", element: <App /> },
-      { path: "/", element: <App /> },
-    ],
-  },
-]);
+const userIsAuth = false;
 
 export function AppRoutes() {
-  return <RouterProvider router={router} />;
+  return <RouterProvider router={userIsAuth ? appRouter : authRouter} />;
 }
