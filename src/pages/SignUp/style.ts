@@ -13,7 +13,7 @@ export const Container = styled.div`
 
     div {
       text-align: left;
-      width: 42rem;
+      width: 44rem;
       margin: 0 auto;
     }
 
@@ -22,7 +22,7 @@ export const Container = styled.div`
     }
 
     img {
-      width: 44rem;
+      width: 36rem;
       filter: drop-shadow(2px 2px 2px black);
     }
   }

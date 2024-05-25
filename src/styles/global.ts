@@ -47,7 +47,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .inputError {
-    color: ${({ theme }) => theme.colors.PENDING1};
+    color: ${({ theme }) => theme.colors.COMPLEMENTARY};
     font-size: 1.2rem;
     display: block;
     position: absolute;

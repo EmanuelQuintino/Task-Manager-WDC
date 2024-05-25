@@ -5,11 +5,12 @@ import { ButtonText } from "../ButtonText";
 import { useNavigate } from "react-router-dom";
 
 type Inputs = {
+  name: string;
   email: string;
   password: string;
 };
 
-export function FormLogin() {
+export function FormSignUp() {
   const {
     register,
     handleSubmit,
@@ -26,9 +27,29 @@ export function FormLogin() {
 
   return (
     <Container>
-      <h2>Login</h2>
+      <h2>Cadastrar</h2>
 
       <form onSubmit={handleSubmit(onSubmit)}>
+        <section>
+          <label>
+            Nome:
+            <input
+              type="text"
+              placeholder="digite seu nome"
+              autoFocus
+              {...register("name", {
+                required: "Campo obrigatório",
+                minLength: { value: 3, message: "Mínimo de 3 caracteres" },
+                pattern: {
+                  value: /^[a-zA-Z\s]+$/i,
+                  message: "Apenas letras são permitidas",
+                },
+              })}
+            />
+          </label>
+          <span className="inputError">{errors.name?.message}</span>
+        </section>
+
         <section>
           <label>
             Email:
@@ -70,10 +91,10 @@ export function FormLogin() {
           <span className="inputError">{errors.password?.message}</span>
         </section>
 
-        <Button title={"Login"} />
+        <Button title={"Cadastrar"} variant="secondary" />
       </form>
 
-      <ButtonText title="Cadastrar" onClick={() => navigate("/signup")} />
+      <ButtonText title="Login" onClick={() => navigate("/")} />
     </Container>
   );
 }

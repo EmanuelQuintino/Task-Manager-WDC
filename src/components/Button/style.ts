@@ -1,7 +1,16 @@
 import styled from "styled-components";
 
-export const Container = styled.button`
-  background: ${({ theme }) => theme.colors.PRIMARY500};
+export type ButtonStyleType = "primary" | "secondary";
+
+type ButtonContainerStyles = {
+  variant: ButtonStyleType;
+};
+
+export const Container = styled.button<ButtonContainerStyles>`
+  background: ${({ theme, variant }) => {
+    return variant == "secondary" ? theme.colors.PRIMARY500 : theme.colors.PRIMARY700;
+  }};
+
   box-shadow: 1px 1px 1px #0004;
   border-radius: 0.8rem;
   font-size: 1.2rem;
