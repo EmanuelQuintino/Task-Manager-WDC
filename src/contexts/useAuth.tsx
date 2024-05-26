@@ -35,16 +35,10 @@ export function AuthProvider({ children }: PropsWithChildren) {
 
     API.post("/login", { email, password })
       .then((response) => {
-        const cookieHeader = response.headers["set-cookie"];
-
-        console.log(response);
-        console.log(cookieHeader);
-
         const userData = { userID: response.data.id };
 
         setUserAuth(userData);
         localStorage.setItem("@task_manager:user", JSON.stringify(userData));
-        return alert(response?.data.message);
       })
       .catch((error) => {
         if (error.response) {
@@ -53,7 +47,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
           alert("Um erro inesperado ao fazer login!");
         }
 
-        console.error(error);
+        console.error("erro ao fazer login:", error);
       })
       .finally(() => {
         setIsLoading(false);
@@ -86,24 +80,28 @@ export function AuthProvider({ children }: PropsWithChildren) {
   }
 
   function signOut() {
-    const resp = confirm("Deseja sair da aplicação?");
-    if (resp) {
-      setUserAuth({});
-      localStorage.removeItem("@task_manager:user");
-    }
+    setUserAuth({});
+    localStorage.removeItem("@task_manager:user");
+
+    API.post("/logout").catch((error) => {
+      console.error("erro ao fazer logout:", error);
+    });
   }
 
   useEffect(() => {
-    try {
-      const userDataStorage = localStorage.getItem("@task_manager:user");
+    const userDataStorage = localStorage.getItem("@task_manager:user");
 
-      if (userDataStorage) {
-        const userData = JSON.parse(userDataStorage);
-        setUserAuth(userData);
-      }
-    } catch (error) {
-      console.error(error);
-      return signOut();
+    if (userDataStorage) {
+      const userData = JSON.parse(userDataStorage);
+
+      API.get("/user")
+        .then((response) => {
+          if (userData.userID == response.data.id) setUserAuth(userData);
+        })
+        .catch((error) => {
+          console.error(error);
+          if (error.response?.status == 401) signOut();
+        });
     }
   }, []);
 

@@ -5,9 +5,16 @@ import { useAuth } from "../../hooks/userAuth";
 
 export function App() {
   const { signOut } = useAuth();
+
+  function logoutApp() {
+    const resp = confirm("Deseja sair da aplicação?");
+    if (resp) {
+      signOut();
+    }
+  }
   return (
     <Container>
-      <ButtonText title="Logout" onClick={() => signOut()} />
+      <ButtonText title="Logout" onClick={logoutApp} />
       {/* outlet is main */}
       <Outlet />
     </Container>
