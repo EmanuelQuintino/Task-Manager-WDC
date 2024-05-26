@@ -2,7 +2,7 @@
 
 Developed as final project [Web Development Course](https://emanuelquintino.github.io/Page-WDC/), this project aims to create a Full Satck Application.
 
-![home-layout](./src/assets/)
+![home-layout](./src/assets/login-layout.png)
 
 ## Features
 
