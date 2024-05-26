@@ -10,6 +10,7 @@ export const Container = styled.div`
   form {
     width: 42rem;
     margin: 0 auto;
+    position: relative;
 
     section {
       margin-top: 2.4rem;
@@ -21,7 +22,7 @@ export const Container = styled.div`
     }
 
     input {
-      background: ${({ theme }) => theme.colors.DARK500};
+      background: ${({ theme }) => theme.colors.DARK200};
       box-shadow: 1px 1px 1px #0004;
       border-radius: 0.8rem;
       font-size: 1.6rem;

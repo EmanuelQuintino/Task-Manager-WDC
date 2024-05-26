@@ -52,6 +52,7 @@ export const GlobalStyles = createGlobalStyle`
     display: block;
     position: absolute;
     margin-top: 0.6rem;
+    right: 0;
     text-shadow: 1px 1px 1px #0008;
   }
 
