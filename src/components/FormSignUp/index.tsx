@@ -3,6 +3,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { Button } from "../Button";
 import { ButtonText } from "../ButtonText";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/userAuth";
 
 type Inputs = {
   name: string;
@@ -18,11 +19,22 @@ export function FormSignUp() {
     reset,
   } = useForm<Inputs>();
 
+  const { signUp, isLoading } = useAuth();
+
   const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
-    reset();
+  const onSubmit: SubmitHandler<Inputs> = async ({ name, email, password }) => {
+    try {
+      const isUserCreated = await signUp({ name, email, password });
+      console.log(isUserCreated);
+
+      if (isUserCreated) {
+        navigate("/");
+        reset();
+      }
+    } catch (error) {
+      console.error("Erro ao criar usuário:", error);
+    }
   };
 
   return (
@@ -91,7 +103,7 @@ export function FormSignUp() {
           <span className="inputError">{errors.password?.message}</span>
         </section>
 
-        <Button title={"Cadastrar"} variant="secondary" />
+        <Button title={"Cadastrar"} variant="secondary" loading={isLoading} />
       </form>
 
       <ButtonText title="Login" onClick={() => navigate("/")} />

@@ -3,13 +3,20 @@ import { API } from "../configs/api";
 // import jwt_decode from "jwt-decode";
 // import { toast } from "react-toastify";
 
-export type HandleLoginTypes = {
+export type SignInTypes = {
+  email: string;
+  password: string;
+};
+
+export type SignUpTypes = {
+  name: string;
   email: string;
   password: string;
 };
 
 type AuthContextTypes = {
-  signIn: (params: HandleLoginTypes) => void;
+  signIn: (params: SignInTypes) => void;
+  signUp: (params: SignUpTypes) => Promise<boolean | void>;
   userAuth: { userID?: string };
   signOut: () => void;
   isLoading: boolean;
@@ -21,7 +28,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
   const [userAuth, setUserAuth] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
-  function signIn({ email, password }: HandleLoginTypes) {
+  function signIn({ email, password }: SignInTypes) {
     if (!email || !password) throw alert("Por favor informar email e senha!");
 
     setIsLoading(true);
@@ -44,6 +51,31 @@ export function AuthProvider({ children }: PropsWithChildren) {
           alert(error.response.data.message);
         } else {
           alert("Um erro inesperado ao fazer login!");
+        }
+
+        console.error(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }
+
+  function signUp({ name, email, password }: SignUpTypes) {
+    if (!name || !email || !password)
+      throw alert("Por favor informar name, email e senha!");
+
+    setIsLoading(true);
+
+    return API.post("/user", { name, email, password })
+      .then((response) => {
+        alert(response?.data.message);
+        return true;
+      })
+      .catch((error) => {
+        if (error.response) {
+          alert(error.response.data.message);
+        } else {
+          alert("Um erro inesperado ao cadastrar usuário!");
         }
 
         console.error(error);
@@ -76,7 +108,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ signIn, userAuth, signOut, isLoading }}>
+    <AuthContext.Provider value={{ signIn, signUp, userAuth, signOut, isLoading }}>
       {children}
     </AuthContext.Provider>
   );
