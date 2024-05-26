@@ -1,4 +1,4 @@
-import { PropsWithChildren, createContext, useContext, useState, useEffect } from "react";
+import { PropsWithChildren, createContext, useState, useEffect } from "react";
 import { API } from "../configs/api";
 // import jwt_decode from "jwt-decode";
 // import { toast } from "react-toastify";
@@ -12,63 +12,71 @@ type AuthContextTypes = {
   signIn: (params: HandleLoginTypes) => void;
   userAuth: { userID?: string };
   signOut: () => void;
+  isLoading: boolean;
 };
 
 export const AuthContext = createContext<AuthContextTypes>({} as AuthContextTypes);
 
 export function AuthProvider({ children }: PropsWithChildren) {
   const [userAuth, setUserAuth] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
-  async function signIn({ email, password }: HandleLoginTypes) {
-    try {
-      if (!email || !password) throw alert("Por favor informar email e senha!");
+  function signIn({ email, password }: HandleLoginTypes) {
+    if (!email || !password) throw alert("Por favor informar email e senha!");
 
-      const response = await API.post("/login", { email, password });
-      const cookieHeader = response.headers["set-cookie"];
+    setIsLoading(true);
 
-      console.log(response);
-      console.log(cookieHeader);
+    API.post("/login", { email, password })
+      .then((response) => {
+        const cookieHeader = response.headers["set-cookie"];
 
-      setUserAuth({ userID: response.data.id });
-      return alert(response?.data.message);
-    } catch (error) {
-      if (error.response) {
-        alert(error.response.data.message);
-      } else {
-        alert("Um erro inesperado ao fazer login!");
+        console.log(response);
+        console.log(cookieHeader);
+
+        const userData = { userID: response.data.id };
+
+        setUserAuth(userData);
+        localStorage.setItem("@task_manager:user", JSON.stringify(userData));
+        return alert(response?.data.message);
+      })
+      .catch((error) => {
+        if (error.response) {
+          alert(error.response.data.message);
+        } else {
+          alert("Um erro inesperado ao fazer login!");
+        }
+
         console.error(error);
-      }
-    }
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }
 
   function signOut() {
     const resp = confirm("Deseja sair da aplicação?");
     if (resp) {
       setUserAuth({});
+      localStorage.removeItem("@task_manager:user");
     }
   }
 
-  // useEffect(() => {
-  //   try {
-  //     const token = localStorage.getItem("@FoodExplorer:token");
+  useEffect(() => {
+    try {
+      const userDataStorage = localStorage.getItem("@task_manager:user");
 
-  //     if (token) {
-  //       const userDecodedToken = jwt_decode(token) as { exp: number };
-  //       const expirationTime = userDecodedToken.exp * 1000;
-
-  //       if (Date.now() > expirationTime) return handleLogout();
-
-  //       API.defaults.headers.common["Authorization"] = token;
-  //       setUserAuth(userDecodedToken);
-  //     }
-  //   } catch (error) {
-  //     console.error(error);
-  //     return handleLogout();
-  //   }
-  // }, []);
+      if (userDataStorage) {
+        const userData = JSON.parse(userDataStorage);
+        setUserAuth(userData);
+      }
+    } catch (error) {
+      console.error(error);
+      return signOut();
+    }
+  }, []);
 
   return (
-    <AuthContext.Provider value={{ signIn, userAuth, signOut }}>
+    <AuthContext.Provider value={{ signIn, userAuth, signOut, isLoading }}>
       {children}
     </AuthContext.Provider>
   );

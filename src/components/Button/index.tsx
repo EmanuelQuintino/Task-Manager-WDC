@@ -9,7 +9,7 @@ type ButtonTypes = {
 export function Button({ title, loading = false, variant = "primary" }: ButtonTypes) {
   return (
     <Container disabled={loading} variant={variant}>
-      {loading ? "Loading..." : title}
+      {loading ? "Carregando..." : title}
     </Container>
   );
 }

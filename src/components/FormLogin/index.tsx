@@ -19,7 +19,7 @@ export function FormLogin() {
   } = useForm<Inputs>();
 
   const navigate = useNavigate();
-  const { signIn } = useAuth();
+  const { signIn, isLoading } = useAuth();
 
   const onSubmit: SubmitHandler<Inputs> = ({ email, password }) => {
     signIn({ email, password });
@@ -72,7 +72,7 @@ export function FormLogin() {
           <span className="inputError">{errors.password?.message}</span>
         </section>
 
-        <Button title={"Login"} />
+        <Button title={"Login"} loading={isLoading} />
       </form>
 
       <ButtonText title="Cadastrar" onClick={() => navigate("/signup")} />
