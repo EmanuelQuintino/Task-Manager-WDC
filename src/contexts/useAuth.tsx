@@ -60,7 +60,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
       });
   }
 
-  function signUp({ name, email, password }: SignUpTypes) {
+  async function signUp({ name, email, password }: SignUpTypes) {
     if (!name || !email || !password)
       throw alert("Por favor informar name, email e senha!");
 
