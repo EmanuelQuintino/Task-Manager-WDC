@@ -23,7 +23,7 @@ export const Container = styled.button<ButtonContainerStyles>`
 
   &:hover {
     cursor: pointer;
-    filter: brightness(1.05);
+    filter: brightness(0.9);
   }
 
   &:disabled {

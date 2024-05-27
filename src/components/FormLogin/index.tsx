@@ -75,6 +75,7 @@ export function FormLogin() {
         <Button title={"Login"} loading={isLoading} />
       </form>
 
+      <span>Não tem uma conta? </span>
       <ButtonText title="Cadastrar" onClick={() => navigate("/signup")} />
     </Container>
   );

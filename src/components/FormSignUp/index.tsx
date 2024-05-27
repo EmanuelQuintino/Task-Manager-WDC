@@ -39,7 +39,7 @@ export function FormSignUp() {
 
   return (
     <Container>
-      <h2>Cadastrar</h2>
+      <h2>Cadastro</h2>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <section>
@@ -103,8 +103,10 @@ export function FormSignUp() {
           <span className="inputError">{errors.password?.message}</span>
         </section>
 
-        <Button title={"Cadastrar"} variant="secondary" loading={isLoading} />
+        <Button title={"Finalizar"} variant="secondary" loading={isLoading} />
       </form>
+
+      <span>Já tem cadastro? </span>
 
       <ButtonText title="Login" onClick={() => navigate("/")} />
     </Container>
