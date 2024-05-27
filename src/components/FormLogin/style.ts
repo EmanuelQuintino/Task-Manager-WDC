@@ -62,7 +62,7 @@ export const Container = styled.div`
       }
     }
 
-    span {
+    .messageChangePage {
       font-size: 1.6rem;
     }
   }
