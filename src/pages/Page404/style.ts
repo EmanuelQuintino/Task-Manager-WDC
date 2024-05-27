@@ -12,7 +12,7 @@ export const Container = styled.div`
   }
 
   button {
-    background: ${({ theme }) => theme.colors.PENDING1};
+    background: ${({ theme }) => theme.colors.DANGER400};
     box-shadow: 1px 1px 1px #0004;
     border-radius: 3.2rem;
     font-size: 1.2rem;
