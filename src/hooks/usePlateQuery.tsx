@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { API } from "../services/api";
+import { API } from "../configs/api";
 
 type IngredientsType = {
   id: string;
@@ -14,14 +14,14 @@ type FoodPlates = {
     price: string;
     category: string;
     image: string;
-    ingredients: IngredientsType[]
+    ingredients: IngredientsType[];
   }[];
 };
 
 export const usePlateQuery = () => {
   const query = useQuery({
-    queryKey: ['foodPlates'],
-    queryFn: async () => await API.get("/plates") as FoodPlates
+    queryKey: ["foodPlates"],
+    queryFn: async () => (await API.get("/plates")) as FoodPlates,
   });
 
   const refetchPlateQuery = async () => await query.refetch();
@@ -29,6 +29,6 @@ export const usePlateQuery = () => {
   return {
     ...query,
     data: query.data?.data,
-    refetchPlateQuery
+    refetchPlateQuery,
   };
 };
