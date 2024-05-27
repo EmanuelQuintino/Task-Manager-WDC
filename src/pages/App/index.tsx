@@ -14,9 +14,9 @@ export function App() {
   }
   return (
     <Container>
+      <Outlet />
       <ButtonText title="Logout" onClick={logoutApp} />
       {/* outlet is main */}
-      <Outlet />
     </Container>
   );
 }
