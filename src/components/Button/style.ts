@@ -6,11 +6,13 @@ type ButtonContainerStyles = {
   variant: ButtonStyleType;
 };
 
-export const Container = styled.button<ButtonContainerStyles>`
-  background: ${({ theme, variant }) => {
-    return variant == "secondary" ? theme.colors.PRIMARY500 : theme.colors.PRIMARY700;
-  }};
+const COLORS = {
+  primary: "PRIMARY700",
+  secondary: "PRIMARY500",
+} as const;
 
+export const Container = styled.button<ButtonContainerStyles>`
+  background: ${({ theme, variant }) => theme.colors[COLORS[variant]]};
   box-shadow: 1px 1px 1px #0004;
   border-radius: 0.8rem;
   font-size: 1.2rem;
