@@ -15,9 +15,9 @@ export const Container = styled.button<ButtonContainerStyles>`
   background: ${({ theme, variant }) => theme.colors[COLORS[variant]]};
   box-shadow: 1px 1px 1px #0004;
   border-radius: 0.8rem;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  padding: 1rem;
+  padding: 1.2rem;
   width: 100%;
   margin: 0 auto;
 
@@ -33,6 +33,5 @@ export const Container = styled.button<ButtonContainerStyles>`
 
   @media (min-width: 768px) {
     font-size: 1.6rem;
-    padding: 1.2rem;
   }
 `;

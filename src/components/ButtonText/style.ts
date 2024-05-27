@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.button`
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 700;
+  text-decoration: underline;
 
   &:hover {
     cursor: pointer;
-    text-decoration: underline;
   }
 
   @media (min-width: 768px) {
