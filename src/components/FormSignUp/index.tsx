@@ -26,7 +26,6 @@ export function FormSignUp() {
   const onSubmit: SubmitHandler<Inputs> = async ({ name, email, password }) => {
     try {
       const isUserCreated = await signUp({ name, email, password });
-      console.log(isUserCreated);
 
       if (isUserCreated) {
         navigate("/");

@@ -21,9 +21,12 @@ export function FormLogin() {
   const navigate = useNavigate();
   const { signIn, isLoading } = useAuth();
 
-  const onSubmit: SubmitHandler<Inputs> = ({ email, password }) => {
-    signIn({ email, password });
-    reset();
+  const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
+    const isUserLogged = await signIn({ email, password });
+
+    if (isUserLogged) {
+      reset();
+    }
   };
 
   return (

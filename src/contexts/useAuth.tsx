@@ -15,7 +15,7 @@ export type SignUpTypes = {
 };
 
 type AuthContextTypes = {
-  signIn: (params: SignInTypes) => void;
+  signIn: (params: SignInTypes) => Promise<boolean | void>;
   signUp: (params: SignUpTypes) => Promise<boolean | void>;
   userAuth: { userID?: string };
   signOut: () => void;
@@ -28,17 +28,18 @@ export function AuthProvider({ children }: PropsWithChildren) {
   const [userAuth, setUserAuth] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
-  function signIn({ email, password }: SignInTypes) {
+  async function signIn({ email, password }: SignInTypes) {
     if (!email || !password) throw alert("Por favor informar email e senha!");
 
     setIsLoading(true);
 
-    API.post("/login", { email, password })
+    return API.post("/login", { email, password })
       .then((response) => {
         const userData = { userID: response.data.id };
 
         setUserAuth(userData);
         localStorage.setItem("@task_manager:user", JSON.stringify(userData));
+        return true;
       })
       .catch((error) => {
         if (error.response) {
