@@ -8,7 +8,7 @@ export const Container = styled.div`
   }
 
   form {
-    width: 28rem;
+    width: 32rem;
     margin: 0 auto;
     position: relative;
 
