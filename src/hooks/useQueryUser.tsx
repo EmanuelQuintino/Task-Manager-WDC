@@ -1,17 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { AxiosPromise } from "axios";
 import { API } from "../configs/api";
-
-type UserDataTypes = {
-  id: string;
-  name: string;
-  email: string;
-  tasks: {
-    total: number;
-    pending: number;
-    completed: number;
-  };
-};
+import { UserDataTypes } from "../@types/userData";
 
 export function useQueryUser() {
   const query = useQuery({
