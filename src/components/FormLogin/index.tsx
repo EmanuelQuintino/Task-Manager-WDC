@@ -28,7 +28,7 @@ export function FormLogin() {
 
   return (
     <Container>
-      <h2>Login</h2>
+      <h2>Faça seu login</h2>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <section>
@@ -76,7 +76,7 @@ export function FormLogin() {
       </form>
 
       <span>Não tem uma conta? </span>
-      <ButtonText title="Cadastrar" onClick={() => navigate("/signup")} />
+      <ButtonText title="Registar" onClick={() => navigate("/signup")} />
     </Container>
   );
 }
