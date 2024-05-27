@@ -106,7 +106,7 @@ export function FormSignUp() {
         <Button title={"Finalizar"} variant="secondary" loading={isLoading} />
       </form>
 
-      <span>Já tem uma conta? </span>
+      <span className="messageChangePage">Já tem uma conta? </span>
 
       <ButtonText title="Login" onClick={() => navigate("/")} />
     </Container>

@@ -67,6 +67,10 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   @media (min-width: 768px) {
+    .inputError {
+      font-size: 1.4rem;
+    }
+
     .loading {
       font-size: 2.0rem;
     } 

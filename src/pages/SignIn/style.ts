@@ -14,7 +14,7 @@ export const Container = styled.div`
 
     img {
       width: 24rem;
-      filter: drop-shadow(2px 2px 2px black);
+      filter: drop-shadow(1px 1px 1px black);
     }
   }
 
