@@ -1,9 +1,8 @@
 import { Container } from "./style";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Button } from "../Button";
-import { ButtonText } from "../ButtonText";
-import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/userAuth";
+import { useNavigate } from "react-router-dom";
 
 type Inputs = {
   email: string;
@@ -18,8 +17,8 @@ export function FormLogin() {
     reset,
   } = useForm<Inputs>();
 
-  const navigate = useNavigate();
   const { signIn, isLoading } = useAuth();
+  const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
     const isUserLogged = await signIn({ email, password });
@@ -78,9 +77,10 @@ export function FormLogin() {
         <Button title={"Login"} loading={isLoading} />
       </form>
 
-      <span className="messageChangePage">Não tem uma conta? </span>
-
-      <ButtonText title="Registar" onClick={() => navigate("/signup")} />
+      <div className="messageChangePage">
+        <span>Não tem uma conta? </span>
+        <button onClick={() => navigate("/signup")}>Registre-se</button>
+      </div>
     </Container>
   );
 }

@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 export function SignUp() {
   return (
     <Container>
-      <div className="signInPart2">
+      <div className="signUpForm">
         <FormSignUp />
       </div>
 
-      <div className="signInPart1">
+      <div className="signUpLogo">
         <div>
           <Link to={"https://emanuelquintino.github.io/Page-WDC/"} target="_blank">
             <img src={logoRJ} alt="logo-RJ" />

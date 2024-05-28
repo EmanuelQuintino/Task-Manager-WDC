@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export function SignIn() {
   return (
     <Container>
-      <div className="signInPart1">
+      <div className="signInLogo">
         <div>
           <h1>Task Manager</h1>
           <Link to={"https://emanuelquintino.github.io/Page-WDC/"} target="_blank">
@@ -15,7 +15,7 @@ export function SignIn() {
         </div>
       </div>
 
-      <div className="signInPart2">
+      <div className="signInForm">
         <FormLogin />
       </div>
     </Container>

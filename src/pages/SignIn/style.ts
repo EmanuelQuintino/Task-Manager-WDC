@@ -5,7 +5,7 @@ export const Container = styled.div`
   place-content: center;
   height: 100vh;
 
-  .signInPart1 {
+  .signInLogo {
     text-align: center;
 
     h1 {
@@ -18,7 +18,7 @@ export const Container = styled.div`
     }
   }
 
-  .signInPart2 {
+  .signInForm {
     margin-top: 4.2rem;
   }
 
@@ -27,7 +27,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
 
-    .signInPart1 {
+    .signInLogo {
       flex: 1;
       text-align: center;
 
@@ -47,7 +47,7 @@ export const Container = styled.div`
       }
     }
 
-    .signInPart2 {
+    .signInForm {
       flex: 1;
     }
   }

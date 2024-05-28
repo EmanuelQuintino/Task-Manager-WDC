@@ -1,7 +1,6 @@
 import { Container } from "./style";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Button } from "../Button";
-import { ButtonText } from "../ButtonText";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/userAuth";
 
@@ -20,7 +19,6 @@ export function FormSignUp() {
   } = useForm<Inputs>();
 
   const { signUp, isLoading } = useAuth();
-
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<Inputs> = async ({ name, email, password }) => {
@@ -105,9 +103,10 @@ export function FormSignUp() {
         <Button title={"Finalizar"} variant="secondary" loading={isLoading} />
       </form>
 
-      <span className="messageChangePage">Já tem uma conta? </span>
-
-      <ButtonText title="Login" onClick={() => navigate("/")} />
+      <div className="messageChangePage">
+        <span>Não tem uma conta? </span>
+        <button onClick={() => navigate("/")}>Login</button>
+      </div>
     </Container>
   );
 }

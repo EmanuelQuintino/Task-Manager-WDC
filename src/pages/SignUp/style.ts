@@ -5,7 +5,11 @@ export const Container = styled.div`
   place-content: center;
   height: 100vh;
 
-  .signInPart1 {
+  .signUpForm {
+    margin-top: 4.2rem;
+  }
+
+  .signUpLogo {
     text-align: center;
 
     h1 {
@@ -19,16 +23,16 @@ export const Container = styled.div`
     }
   }
 
-  .signInPart2 {
-    margin-top: 4.2rem;
-  }
-
   @media (min-width: 768px) {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    .signInPart1 {
+    .signUpForm {
+      flex: 1;
+    }
+
+    .signUpLogo {
       flex: 1;
       text-align: center;
 
@@ -46,10 +50,6 @@ export const Container = styled.div`
         width: 36rem;
         filter: drop-shadow(2px 2px 2px black);
       }
-    }
-
-    .signInPart2 {
-      flex: 1;
     }
   }
 `;

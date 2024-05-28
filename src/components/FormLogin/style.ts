@@ -39,6 +39,12 @@ export const Container = styled.div`
 
   .messageChangePage {
     font-size: 1.4rem;
+
+    button {
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-decoration: underline;
+    }
   }
 
   button {
@@ -64,6 +70,10 @@ export const Container = styled.div`
 
     .messageChangePage {
       font-size: 1.6rem;
+
+      button {
+        font-size: 1.6rem;
+      }
     }
   }
 `;

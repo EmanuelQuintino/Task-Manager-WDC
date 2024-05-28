@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
 import { Container } from "./style";
-import { ButtonText } from "../../components/ButtonText";
 import { useAuth } from "../../hooks/userAuth";
 
 export function App() {
@@ -15,7 +14,7 @@ export function App() {
   return (
     <Container>
       <Outlet />
-      <ButtonText title="Logout" onClick={logoutApp} />
+      <button onClick={logoutApp}>Logout</button>
       {/* outlet is main */}
     </Container>
   );

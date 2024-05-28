@@ -38,11 +38,17 @@ export const Container = styled.div`
   }
 
   .messageChangePage {
-    font-size: 1.4rem;
-  }
-
-  button {
     margin-top: 4.2rem;
+
+    span {
+      font-size: 1.4rem;
+    }
+
+    button {
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-decoration: underline;
+    }
   }
 
   @media (min-width: 768px) {
@@ -63,7 +69,13 @@ export const Container = styled.div`
     }
 
     .messageChangePage {
-      font-size: 1.6rem;
+      span {
+        font-size: 1.6rem;
+      }
+
+      button {
+        font-size: 1.6rem;
+      }
     }
   }
 `;
