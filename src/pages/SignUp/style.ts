@@ -4,9 +4,28 @@ export const Container = styled.div`
   display: grid;
   place-content: center;
   height: 100vh;
+  text-align: center;
 
   .signUpForm {
     margin-top: 4.2rem;
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    .messageChangePage {
+      margin-top: 4.2rem;
+
+      span {
+        font-size: 1.4rem;
+      }
+
+      button {
+        font-size: 1.4rem;
+        font-weight: 700;
+        text-decoration: underline;
+      }
+    }
   }
 
   .signUpLogo {
@@ -30,6 +49,20 @@ export const Container = styled.div`
 
     .signUpForm {
       flex: 1;
+
+      h2 {
+        font-size: 2.4rem;
+      }
+
+      .messageChangePage {
+        span {
+          font-size: 1.6rem;
+        }
+
+        button {
+          font-size: 1.6rem;
+        }
+      }
     }
 
     .signUpLogo {

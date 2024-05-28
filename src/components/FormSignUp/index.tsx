@@ -36,8 +36,6 @@ export function FormSignUp() {
 
   return (
     <Container>
-      <h2>Crie sua conta</h2>
-
       <form onSubmit={handleSubmit(onSubmit)}>
         <section>
           <label>
@@ -102,11 +100,6 @@ export function FormSignUp() {
 
         <Button title={"Finalizar"} variant="secondary" loading={isLoading} />
       </form>
-
-      <div className="messageChangePage">
-        <span>Não tem uma conta? </span>
-        <button onClick={() => navigate("/")}>Login</button>
-      </div>
     </Container>
   );
 }

@@ -1,13 +1,22 @@
 import { Container } from "./style";
 import { FormSignUp } from "../../components/FormSignUp";
 import logoRJ from "../../assets/logo-rj.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export function SignUp() {
+  const navigate = useNavigate();
+
   return (
     <Container>
       <div className="signUpForm">
+        <h2>Crie sua conta</h2>
+
         <FormSignUp />
+
+        <div className="messageChangePage">
+          <span>Já tem uma conta? </span>
+          <button onClick={() => navigate("/")}>Login</button>
+        </div>
       </div>
 
       <div className="signUpLogo">
