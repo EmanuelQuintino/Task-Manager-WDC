@@ -20,6 +20,25 @@ export const Container = styled.div`
 
   .signInForm {
     margin-top: 4.2rem;
+    text-align: center;
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    .messageChangePage {
+      margin-top: 4.2rem;
+
+      span {
+        font-size: 1.4rem;
+      }
+
+      button {
+        font-size: 1.4rem;
+        font-weight: 700;
+        text-decoration: underline;
+      }
+    }
   }
 
   @media (min-width: 768px) {
@@ -49,6 +68,20 @@ export const Container = styled.div`
 
     .signInForm {
       flex: 1;
+
+      h2 {
+        font-size: 2.4rem;
+      }
+
+      .messageChangePage {
+        span {
+          font-size: 1.6rem;
+        }
+
+        button {
+          font-size: 1.6rem;
+        }
+      }
     }
   }
 `;

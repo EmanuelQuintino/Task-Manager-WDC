@@ -1,9 +1,11 @@
 import { FormLogin } from "../../components/FormLogin";
 import { Container } from "./style";
 import logoReprogramaJucas from "../../assets/logo-reprograma-jucas.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export function SignIn() {
+  const navigate = useNavigate();
+
   return (
     <Container>
       <div className="signInLogo">
@@ -16,7 +18,14 @@ export function SignIn() {
       </div>
 
       <div className="signInForm">
+        <h2>Faça seu login</h2>
+
         <FormLogin />
+
+        <div className="messageChangePage">
+          <span>Não tem uma conta? </span>
+          <button onClick={() => navigate("/signup")}>Registre-se</button>
+        </div>
       </div>
     </Container>
   );
