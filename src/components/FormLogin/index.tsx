@@ -3,7 +3,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { Button } from "../Button";
 import { useAuth } from "../../hooks/userAuth";
 
-type Inputs = {
+type InputsTypes = {
   email: string;
   password: string;
 };
@@ -14,11 +14,11 @@ export function FormLogin() {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<Inputs>();
+  } = useForm<InputsTypes>();
 
   const { signIn, isLoading } = useAuth();
 
-  const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
+  const onSubmit: SubmitHandler<InputsTypes> = async ({ email, password }) => {
     const isUserLogged = await signIn({ email, password });
 
     if (isUserLogged) {
@@ -52,18 +52,9 @@ export function FormLogin() {
             Senha:
             <input
               type="password"
-              placeholder="mínimo de 7 dígitos"
+              placeholder="digite sua senha"
               {...register("password", {
                 required: "Campo obrigatório",
-                minLength: {
-                  value: 7,
-                  message: "A senha deve ter no mínimo 7 dígitos",
-                },
-                pattern: {
-                  value: /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}|:"<>?,./\\[\]-]).+$/,
-                  message:
-                    "A senha deve ter número, letra maiúscula e caractere especial",
-                },
               })}
             />
           </label>
