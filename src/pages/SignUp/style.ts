@@ -24,6 +24,10 @@ export const Container = styled.div`
         font-size: 1.4rem;
         font-weight: 700;
         text-decoration: underline;
+
+        &:disabled {
+          cursor: default;
+        }
       }
     }
   }

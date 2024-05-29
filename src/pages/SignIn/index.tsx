@@ -2,9 +2,11 @@ import { FormLogin } from "../../components/FormLogin";
 import { Container } from "./style";
 import logoReprogramaJucas from "../../assets/logo-reprograma-jucas.png";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 
 export function SignIn() {
   const navigate = useNavigate();
+  const { isLoading } = useAuth();
 
   return (
     <Container>
@@ -24,7 +26,9 @@ export function SignIn() {
 
         <div className="messageChangePage">
           <span>Não tem uma conta? </span>
-          <button onClick={() => navigate("/signup")}>Registre-se</button>
+          <button onClick={() => navigate("/signup")} disabled={isLoading}>
+            Registre-se
+          </button>
         </div>
       </div>
     </Container>
