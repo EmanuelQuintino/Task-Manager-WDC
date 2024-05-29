@@ -1,6 +1,5 @@
 import { PropsWithChildren, createContext, useState, useEffect } from "react";
 import { API } from "../configs/api";
-// import jwt_decode from "jwt-decode";
 // import { toast } from "react-toastify";
 
 export type SignInTypes = {

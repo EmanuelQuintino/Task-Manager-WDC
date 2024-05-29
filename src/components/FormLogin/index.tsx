@@ -1,7 +1,7 @@
 import { Container } from "./style";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Button } from "../Button";
-import { useAuth } from "../../hooks/userAuth";
+import { useAuth } from "../../hooks/useAuth";
 
 type InputsTypes = {
   email: string;

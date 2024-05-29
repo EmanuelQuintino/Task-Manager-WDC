@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Container } from "./style";
-import { useAuth } from "../../hooks/userAuth";
+import { useAuth } from "../../hooks/useAuth";
 
 export function App() {
   const { signOut } = useAuth();
