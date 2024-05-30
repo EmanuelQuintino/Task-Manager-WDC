@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const Container = styled.header`
+export const Container = styled.aside`
   box-shadow: 0 0 4px 4px #0002;
-  background-color: ${({ theme }) => theme.colors.DARK200};
+  background-color: ${({ theme }) => theme.colors.DARK700};
   padding: 0.8rem;
   position: fixed;
   height: 100%;
@@ -24,11 +24,11 @@ export const Container = styled.header`
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
-    margin-top: 6.8rem;
+    margin-top: 7.2rem;
   }
 
   .active {
-    background: ${({ theme }) => theme.colors.PRIMARY600};
+    background: ${({ theme }) => theme.colors.PRIMARY700}44;
   }
 
   @keyframes openSideBar {
@@ -40,6 +40,15 @@ export const Container = styled.header`
     to {
       opacity: 1;
       width: 40vw;
+    }
+  }
+
+  @media (min-width: 768px) {
+    width: 20vw;
+    animation: none;
+
+    > .closeIcon {
+      display: none;
     }
   }
 `;

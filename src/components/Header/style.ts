@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.header`
   width: 100%;
+  height: 8rem;
   box-shadow: 0 0 4px 4px #0002;
   padding: 2.4rem;
   display: flex;
@@ -18,5 +19,13 @@ export const Container = styled.header`
     display: flex;
     align-items: center;
     gap: 0.8rem;
+  }
+
+  @media (min-width: 768px) {
+    justify-content: end;
+
+    .menuIcon {
+      display: none;
+    }
   }
 `;

@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 
 type SideBarProps = {
-  toggleSideBar: () => void;
+  toggleSideBar?: () => void;
 };
 
 export function SideBar({ toggleSideBar }: SideBarProps) {
