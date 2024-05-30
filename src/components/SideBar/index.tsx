@@ -19,27 +19,29 @@ export function SideBar({ toggleSideBar }: SideBarProps) {
 
   return (
     <Container>
-      <i className="material-icons closeIcon" onClick={toggleSideBar}>
-        close
-      </i>
+      <div className="asideMenu">
+        <i className="material-icons closeIcon" onClick={toggleSideBar}>
+          close
+        </i>
 
-      <nav>
-        <ul>
-          <NavLink to={"/"}>
-            <MenuItem title="Home" icon="home" />
-          </NavLink>
+        <nav>
+          <ul>
+            <NavLink to={"/"}>
+              <MenuItem title="Home" icon="home" />
+            </NavLink>
 
-          <NavLink to={"/tasks"}>
-            <MenuItem title="Tarefas" icon="task" />
-          </NavLink>
+            <NavLink to={"/tasks"}>
+              <MenuItem title="Tarefas" icon="task" />
+            </NavLink>
 
-          <NavLink to={"/create-task"}>
-            <MenuItem title="Adicionar" icon="add_task" />
-          </NavLink>
+            <NavLink to={"/create-task"}>
+              <MenuItem title="Adicionar" icon="add_task" />
+            </NavLink>
 
-          <MenuItem title="Sair" icon="logout" onClick={logoutApp} />
-        </ul>
-      </nav>
+            <MenuItem title="Sair" icon="logout" onClick={logoutApp} />
+          </ul>
+        </nav>
+      </div>
     </Container>
   );
 }

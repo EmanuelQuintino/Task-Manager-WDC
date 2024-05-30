@@ -1,30 +1,36 @@
 import styled from "styled-components";
 
 export const Container = styled.aside`
-  box-shadow: 0 0 4px 4px #0002;
-  background-color: ${({ theme }) => theme.colors.DARK700};
-  padding: 0.8rem;
+  background-color: ${({ theme }) => theme.colors.DARK700}88;
   position: fixed;
   height: 100%;
   top: 0;
   left: 0;
-  width: 40vw;
-  animation: openSideBar 300ms;
+  width: 100vw;
 
-  > .closeIcon {
-    color: ${({ theme }) => theme.colors.LIGHT400};
-    font-size: 2.4rem;
-    cursor: pointer;
-    position: absolute;
-    top: 2.4rem;
-    left: 2.4rem;
-  }
+  .asideMenu {
+    box-shadow: 0 0 4px 4px #0002;
+    background-color: ${({ theme }) => theme.colors.DARK700};
+    padding: 0.8rem;
+    height: 100%;
+    width: 40vw;
+    animation: openSideBar 300ms;
 
-  nav ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    margin-top: 7.2rem;
+    > .closeIcon {
+      color: ${({ theme }) => theme.colors.LIGHT400};
+      font-size: 2.4rem;
+      cursor: pointer;
+      position: absolute;
+      top: 2.4rem;
+      left: 2.4rem;
+    }
+
+    nav ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-top: 7.2rem;
+    }
   }
 
   .active {
@@ -44,11 +50,15 @@ export const Container = styled.aside`
   }
 
   @media (min-width: 768px) {
-    width: 20vw;
-    animation: none;
+    background: none;
 
-    > .closeIcon {
-      display: none;
+    .asideMenu {
+      width: 20vw;
+      animation: none;
+
+      > .closeIcon {
+        display: none;
+      }
     }
   }
 `;
