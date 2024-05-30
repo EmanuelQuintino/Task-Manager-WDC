@@ -1,6 +1,6 @@
 import { MenuItem } from "../MenuItem";
 import { Container } from "./style";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 
 type SideBarProps = {
@@ -9,11 +9,13 @@ type SideBarProps = {
 
 export function SideBar({ toggleSideBar }: SideBarProps) {
   const { signOut } = useAuth();
+  const navigate = useNavigate();
 
   function logoutApp() {
     const resp = confirm("Deseja sair da aplicação?");
     if (resp) {
       signOut();
+      navigate("/");
     }
   }
 
