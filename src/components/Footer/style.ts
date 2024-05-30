@@ -9,6 +9,13 @@ export const Container = styled.footer`
   align-items: center;
   justify-content: center;
 
+  strong {
+    font-size: 1.2rem;
+  }
+
   @media (min-width: 768px) {
+    strong {
+      font-size: 1.4rem;
+    }
   }
 `;

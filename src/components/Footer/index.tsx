@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <Container>
       <Link to={"https://emanuelquintino.github.io/Page-WDC/"} target="_blank">
-        <strong>Reprograma Jucás</strong>
+        <strong>&copy; Reprograma Jucás</strong>
       </Link>
     </Container>
   );

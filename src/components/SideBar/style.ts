@@ -50,7 +50,7 @@ export const Container = styled.aside`
   }
 
   @media (min-width: 768px) {
-    background: none;
+    width: 20vw;
 
     .asideMenu {
       width: 20vw;

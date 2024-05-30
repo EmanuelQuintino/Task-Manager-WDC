@@ -19,6 +19,10 @@ export const Container = styled.header`
     display: flex;
     align-items: center;
     gap: 0.8rem;
+
+    img {
+      width: 2.4rem;
+    }
   }
 
   @media (min-width: 768px) {
@@ -26,6 +30,16 @@ export const Container = styled.header`
 
     .menuIcon {
       display: none;
+    }
+
+    .appLogo {
+      h1 {
+        font-size: 2rem;
+      }
+
+      img {
+        width: 3.2rem;
+      }
     }
   }
 `;

@@ -20,7 +20,7 @@ export function Header() {
       <div className="appLogo">
         <h1>Task Manager</h1>
         <Link to={"https://emanuelquintino.github.io/Page-WDC/"} target="_blank">
-          <img src={logoRJ} alt="logo rj rprograma jucás" width={24} />
+          <img src={logoRJ} alt="logo rj rprograma jucás" />
         </Link>
       </div>
 

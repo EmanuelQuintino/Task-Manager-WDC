@@ -35,10 +35,10 @@ export function SideBar({ toggleSideBar }: SideBarProps) {
             </NavLink>
 
             <NavLink to={"/create-task"}>
-              <MenuItem title="Adicionar" icon="add_task" />
+              <MenuItem title="Adicionar" icon="add_circle" />
             </NavLink>
 
-            <MenuItem title="Sair" icon="logout" onClick={logoutApp} />
+            <MenuItem title="Sair" icon="exit_to_app" onClick={logoutApp} />
           </ul>
         </nav>
       </div>
