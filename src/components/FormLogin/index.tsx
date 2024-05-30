@@ -20,10 +20,7 @@ export function FormLogin() {
 
   const onSubmit: SubmitHandler<InputsTypes> = async ({ email, password }) => {
     const isUserLogged = await signIn({ email, password });
-
-    if (isUserLogged) {
-      reset();
-    }
+    if (isUserLogged) reset();
   };
 
   return (
