@@ -35,6 +35,10 @@ export const GlobalStyles = createGlobalStyle`
     text-decoration: none;
   }
 
+  li {
+    list-style: none;
+  }
+
   .srOnly {
     position: absolute;
     width: 0.1rem;
