@@ -10,20 +10,6 @@ export const Container = styled.div`
       margin-top: 2.4rem;
     }
 
-    .dateTask {
-      display: flex;
-      align-items: center;
-      gap: 2.4rem;
-
-      div:nth-child(1) {
-        position: relative;
-      }
-
-      div {
-        flex: 1;
-      }
-    }
-
     label {
       font-size: 1.4rem;
       text-align: left;
@@ -39,6 +25,18 @@ export const Container = styled.div`
       padding: 1.2rem;
       width: 100%;
       margin: 0.4rem auto 0;
+    }
+
+    .dateTask {
+      align-items: center;
+
+      div:nth-child(1) {
+        position: relative;
+      }
+
+      div:nth-child(2) {
+        margin-top: 2.4rem;
+      }
     }
 
     input[type="date"]::-webkit-calendar-picker-indicator {
@@ -65,6 +63,19 @@ export const Container = styled.div`
       input,
       select {
         font-size: 1.6rem;
+      }
+
+      .dateTask {
+        display: flex;
+        gap: 2.4rem;
+
+        div:nth-child(2) {
+          margin-top: 0;
+        }
+
+        div {
+          flex: 1;
+        }
       }
     }
   }
