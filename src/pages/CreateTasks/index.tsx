@@ -1,9 +1,12 @@
+import { FormCreateTask } from "../../components/FormCreateTask";
 import { Container } from "./style";
 
 export function CreateTasks() {
   return (
     <Container>
-      <h2>CreateTasks</h2>
+      <h2>Adicionar tarefa para realizar</h2>
+
+      <FormCreateTask />
     </Container>
   );
 }

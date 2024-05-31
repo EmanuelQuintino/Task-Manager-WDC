@@ -1,18 +1,14 @@
 import styled from "styled-components";
+import { AppTheme } from "../../@types/styles";
 
-export type ButtonStyleType = "primary" | "secondary";
+export type ButtonStyleType = keyof AppTheme["colors"];
 
 type ButtonContainerStyles = {
   variant: ButtonStyleType;
 };
 
-const COLORS = {
-  primary: "PRIMARY700",
-  secondary: "PRIMARY500",
-} as const;
-
 export const Container = styled.button<ButtonContainerStyles>`
-  background: ${({ theme, variant }) => theme.colors[COLORS[variant]]};
+  background: ${({ theme, variant }) => theme.colors[variant]}AA;
   box-shadow: 1px 1px 1px #0004;
   border-radius: 0.8rem;
   font-size: 1.4rem;

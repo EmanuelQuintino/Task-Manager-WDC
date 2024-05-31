@@ -19,6 +19,12 @@ export function SideBar({ toggleSideBar }: SideBarProps) {
     }
   }
 
+  function handleKeyDown(event: React.KeyboardEvent<HTMLDivElement>) {
+    if (event.key === "Enter") {
+      logoutApp();
+    }
+  }
+
   return (
     <Container>
       <div className="asideMenu">
@@ -40,7 +46,9 @@ export function SideBar({ toggleSideBar }: SideBarProps) {
               <MenuItem title="Adicionar" icon="add_circle" />
             </NavLink>
 
-            <MenuItem title="Sair" icon="exit_to_app" onClick={logoutApp} />
+            <div onClick={logoutApp} onKeyDown={handleKeyDown} tabIndex={0}>
+              <MenuItem title="Sair" icon="exit_to_app" />
+            </div>
           </ul>
         </nav>
       </div>

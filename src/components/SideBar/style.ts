@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.aside`
   background-color: ${({ theme }) => theme.colors.DARK700}88;
   position: fixed;
+  z-index: 9999;
   height: 100%;
   top: 0;
   left: 0;
@@ -34,7 +35,7 @@ export const Container = styled.aside`
   }
 
   .active {
-    background: ${({ theme }) => theme.colors.PRIMARY700}44;
+    background: ${({ theme }) => theme.colors.PRIMARY700}88;
   }
 
   @keyframes openSideBar {
