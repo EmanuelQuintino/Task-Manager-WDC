@@ -17,7 +17,7 @@ type PropsToForm = {
   isUpdate?: boolean;
 };
 
-export function FormCreateTask({ isUpdate = false }: PropsToForm) {
+export function FormMutationTask({ isUpdate = false }: PropsToForm) {
   const {
     register,
     handleSubmit,
@@ -76,7 +76,6 @@ export function FormCreateTask({ isUpdate = false }: PropsToForm) {
             <input
               type="text"
               placeholder="descreva a tarefa a ser realizada"
-              autoFocus
               {...register("description", {
                 required: "Campo obrigatório",
                 minLength: { value: 3, message: "Mínimo de 3 caracteres" },
