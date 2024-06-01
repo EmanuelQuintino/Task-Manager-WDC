@@ -2,6 +2,8 @@ import { Container } from "./style";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Button } from "../Button";
 import { useNavigate } from "react-router-dom";
+import { useTaskCreate } from "../../hooks/useTaskCreate";
+import { useEffect } from "react";
 
 type Inputs = {
   title: string;
@@ -23,44 +25,31 @@ export function FormCreateTask({ isUpdate = false }: PropsToForm) {
     reset,
   } = useForm<Inputs>();
 
+  const { mutate, isSuccess } = useTaskCreate();
+
   const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<Inputs> = async ({
-    title,
-    description,
-    date,
-    time,
-    status,
-  }) => {
-    try {
-      // const isTaskCreated = await createTask({
-      //   title,
-      //   description,
-      //   date,
-      //   status,
-      // });
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    const { title, description, date, time, status } = data;
 
-      const isTaskCreated = false;
+    const dateAndTime = new Date(
+      new Date(date + " " + time).getTime() - 1000 * 60 * 60 * 3 // -3h
+    ).toISOString();
 
-      if (isTaskCreated) {
-        navigate("/");
-        reset();
-      }
-
-      const dateAndTime = new Date(
-        new Date(date + " " + time).getTime() - 1000 * 60 * 60 * 3 // -3h
-      ).toISOString();
-
-      console.log({
-        title,
-        description,
-        date: dateAndTime,
-        status,
-      });
-    } catch (error) {
-      console.error("Erro ao criar tarefa:", error);
-    }
+    mutate({
+      title,
+      description,
+      date: dateAndTime,
+      status,
+    });
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      navigate("/tasks");
+      reset();
+    }
+  }, [isSuccess, navigate, reset]);
 
   return (
     <Container>
