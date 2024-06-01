@@ -4,7 +4,7 @@ export const Container = styled.main`
   margin-top: 1.2rem;
 
   h2 {
-    font-size: 2.4rem;
+    font-size: 2rem;
   }
 
   .tasksContainer {
