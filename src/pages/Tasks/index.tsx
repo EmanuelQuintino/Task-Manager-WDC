@@ -10,9 +10,11 @@ export function Tasks() {
     <Container>
       <h2>Tarefas</h2>
 
-      {data?.map((task) => {
-        return <TaskCard data={task} />;
-      })}
+      <div className="tasksContainer">
+        {data?.map((task) => {
+          return <TaskCard data={task} />;
+        })}
+      </div>
     </Container>
   );
 }

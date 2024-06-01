@@ -6,10 +6,19 @@ type PropsTypes = {
 };
 
 export function TaskCard({ data }: PropsTypes) {
-  const { title } = data;
+  const { title, description, date, status } = data;
   return (
     <Container>
-      <h1>{title}</h1>
+      <div className={`status ${status}`}>{status}</div>
+
+      <div className="taskDetails">
+        <strong>
+          {title} <span>{date}</span>
+        </strong>
+        <p>{description}</p>
+      </div>
+
+      <i className="material-icons deleteIcon">delete</i>
     </Container>
   );
 }
