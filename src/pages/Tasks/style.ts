@@ -8,7 +8,8 @@ export const Container = styled.main`
   }
 
   .tasksContainer {
-    overflow: auto;
+    height: 65vh;
+    overflow-y: auto;
   }
 
   @media (min-width: 768px) {

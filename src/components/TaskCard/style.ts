@@ -56,7 +56,6 @@ export const Container = styled.div`
   @media (min-width: 768px) {
     width: 75vw;
     padding: 2.5rem;
-    margin-top: 1.6rem;
 
     .status {
       font-size: 0.8rem;
