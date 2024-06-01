@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 85vw;
+  width: calc(${({ theme }) => theme.size.MAIN_WIDTH_MOBILE} + 5vw);
   padding: 1.2rem;
-  margin-top: 1.2rem;
   background: ${({ theme }) => theme.colors.DARK400};
   display: flex;
   align-items: center;
@@ -54,7 +53,7 @@ export const Container = styled.div`
   }
 
   @media (min-width: 768px) {
-    width: 75vw;
+    width: calc(${({ theme }) => theme.size.MAIN_WIDTH_DESKTOP} + 5vw);
     padding: 2.5rem;
 
     .status {

@@ -18,4 +18,8 @@ export const appTheme = {
     DANGER200: "#D94179",
     DANGER400: "#F25750",
   },
+  size: {
+    MAIN_WIDTH_MOBILE: "80vw",
+    MAIN_WIDTH_DESKTOP: "70vw",
+  },
 };

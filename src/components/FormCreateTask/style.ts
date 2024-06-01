@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   form {
-    width: 80vw;
+    width: ${({ theme }) => theme.size.MAIN_WIDTH_MOBILE};
     margin: 0 auto;
     position: relative;
 
@@ -54,7 +54,7 @@ export const Container = styled.div`
 
   @media (min-width: 768px) {
     form {
-      width: 70vw;
+      width: ${({ theme }) => theme.size.MAIN_WIDTH_DESKTOP};
 
       label {
         font-size: 1.6rem;
