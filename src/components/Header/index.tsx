@@ -11,9 +11,20 @@ export function Header() {
     setShowSideBar((prevState) => (prevState == true ? false : true));
   }
 
+  function handleKeyUp(event: React.KeyboardEvent<HTMLDivElement>) {
+    if (event.key === "Enter") {
+      toggleSideBar();
+    }
+  }
+
   return (
     <Container>
-      <i className="material-icons menuIcon" onClick={toggleSideBar}>
+      <i
+        className="material-icons menuIcon"
+        onClick={toggleSideBar}
+        onKeyUp={handleKeyUp}
+        tabIndex={0}
+      >
         menu
       </i>
 

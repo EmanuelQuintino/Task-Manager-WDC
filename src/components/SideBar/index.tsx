@@ -19,34 +19,34 @@ export function SideBar({ toggleSideBar }: SideBarProps) {
     }
   }
 
-  function handleKeyDown(event: React.KeyboardEvent<HTMLDivElement>) {
+  function handleKeyUp(event: React.KeyboardEvent<HTMLDivElement>) {
     if (event.key === "Enter") {
       logoutApp();
     }
   }
 
   return (
-    <Container>
-      <div className="asideMenu">
+    <Container onClick={toggleSideBar}>
+      <div className="asideMenu" onClick={toggleSideBar}>
         <i className="material-icons closeIcon" onClick={toggleSideBar}>
           close
         </i>
 
         <nav>
           <ul>
-            <NavLink to={"/"}>
+            <NavLink to={"/"} onClick={toggleSideBar}>
               <MenuItem title="Home" icon="home" />
             </NavLink>
 
-            <NavLink to={"/tasks"}>
+            <NavLink to={"/tasks"} onClick={toggleSideBar}>
               <MenuItem title="Tarefas" icon="task" />
             </NavLink>
 
-            <NavLink to={"/create-task"}>
+            <NavLink to={"/create-task"} onClick={toggleSideBar}>
               <MenuItem title="Adicionar" icon="add_circle" />
             </NavLink>
 
-            <div onClick={logoutApp} onKeyDown={handleKeyDown} tabIndex={0}>
+            <div onClick={logoutApp} onKeyUp={handleKeyUp} tabIndex={0}>
               <MenuItem title="Sair" icon="exit_to_app" />
             </div>
           </ul>
