@@ -7,7 +7,7 @@ type FilterType = "all" | "pending" | "completed";
 
 export function useQueryTasks() {
   const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
   const [limit, setLimit] = useState(10);
   const [filter, setFilter] = useState<FilterType>("all");
 
