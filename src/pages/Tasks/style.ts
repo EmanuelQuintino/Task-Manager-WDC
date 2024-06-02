@@ -19,7 +19,7 @@ export const Container = styled.main`
   }
 
   .tasksContainer {
-    height: 65vh;
+    height: 70vh;
     overflow-y: auto;
     margin-top: 1.2rem;
 
