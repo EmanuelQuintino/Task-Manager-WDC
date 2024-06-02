@@ -10,7 +10,7 @@ export const Container = styled.div`
   option {
     font-size: 1.4rem;
     cursor: pointer;
-    background: ${({ theme }) => theme.colors.DARK400};
+    background: ${({ theme }) => theme.colors.DARK200};
   }
 
   span {
