@@ -4,7 +4,8 @@ import { useQueryTasks } from "../../hooks/useQueryTasks";
 import { Container } from "./style";
 
 export function Tasks() {
-  const { data } = useQueryTasks();
+  const { data, changeLimit, page, totalPages, prevPage, nextPage } = useQueryTasks();
+
   console.log(data);
 
   return (
@@ -13,7 +14,14 @@ export function Tasks() {
         <h2>Tarefas</h2>
 
         <div className="paginationDesktop">
-          <Pagination />
+          <Pagination
+            page={page}
+            step={5}
+            totalPages={totalPages}
+            prevPage={prevPage}
+            nextPage={nextPage}
+            changeLimit={changeLimit}
+          />
         </div>
       </div>
 
@@ -24,7 +32,14 @@ export function Tasks() {
       </div>
 
       <div className="paginationMobile">
-        <Pagination />
+        <Pagination
+          page={page}
+          step={5}
+          totalPages={totalPages}
+          prevPage={prevPage}
+          nextPage={nextPage}
+          changeLimit={changeLimit}
+        />
       </div>
     </Container>
   );

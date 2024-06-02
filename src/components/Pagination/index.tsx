@@ -1,30 +1,51 @@
+import { ChangeEvent } from "react";
 import { Container } from "./style";
 
-export function Pagination() {
+type PaginationProps = {
+  page: number;
+  step?: number;
+  totalPages: number;
+  prevPage: () => void;
+  nextPage: () => void;
+  changeLimit: (number: number) => void;
+};
+
+export function Pagination({
+  page,
+  step = 5,
+  totalPages,
+  prevPage,
+  nextPage,
+  changeLimit,
+}: PaginationProps) {
+  function handleChangeLimit(event: ChangeEvent<HTMLSelectElement>) {
+    changeLimit(Number(event.target.value));
+  }
+
   return (
     <Container>
       <div className="limitBox">
         <span>Quatidade por página: </span>
-        <select name="limit" id="limit">
-          <option value="5">5</option>
-          <option value="10">10</option>
-          <option value="15">15</option>
-          <option value="20">20</option>
+        <select name="limit" id="limit" onChange={handleChangeLimit}>
+          <option>{step * 1}</option>
+          <option selected>{step * 2}</option>
+          <option>{step * 3}</option>
+          <option>{step * 4}</option>
         </select>
       </div>
 
       <div className="pageNumbers">
-        <span>1</span>
+        <span>{page}</span>
         <span> / </span>
-        <span>10</span>
+        <span>{totalPages}</span>
       </div>
 
       <div className="paginationButtons">
-        <button>
+        <button onClick={prevPage}>
           <i className="material-icons">arrow_back_ios</i>
         </button>
 
-        <button>
+        <button onClick={nextPage}>
           <i className="material-icons">arrow_forward_ios</i>
         </button>
       </div>
