@@ -8,10 +8,10 @@ type FilterType = "all" | "pending" | "completed";
 export function useQueryTasks() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-  const [limit, setLimit] = useState<number>();
+  const [limit, setLimit] = useState(10);
   const [filter, setFilter] = useState<FilterType>("all");
 
-  async function getTasks({ page = 1, limit = 5, filter = "all" }) {
+  async function getTasks({ page = 1, limit = 10, filter = "all" }) {
     if (page <= 0) page = 1;
     const offset = limit * (page - 1);
 

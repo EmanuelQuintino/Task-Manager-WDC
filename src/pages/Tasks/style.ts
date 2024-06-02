@@ -7,6 +7,7 @@ export const Container = styled.main`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: calc(${({ theme }) => theme.size.MAIN_WIDTH_MOBILE} + 5vw);
   }
 
   h2 {
@@ -48,6 +49,10 @@ export const Container = styled.main`
   }
 
   @media (min-width: 768px) {
+    .headPageTasks {
+      width: calc(${({ theme }) => theme.size.MAIN_WIDTH_DESKTOP} + 5vw);
+    }
+
     h2 {
       font-size: 2.8rem;
     }

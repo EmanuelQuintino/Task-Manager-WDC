@@ -8,8 +8,9 @@ export const Container = styled.div`
 
   select,
   option {
-    background: ${({ theme }) => theme.colors.DARK400};
     font-size: 1.4rem;
+    cursor: pointer;
+    background: ${({ theme }) => theme.colors.DARK400};
   }
 
   span {
@@ -23,6 +24,7 @@ export const Container = styled.div`
   .paginationButtons {
     display: flex;
     gap: 1.2rem;
+    margin-top: 0.2rem;
   }
 
   @media (min-width: 768px) {
@@ -30,7 +32,6 @@ export const Container = styled.div`
 
     select,
     option {
-      background: ${({ theme }) => theme.colors.DARK400};
       font-size: 1.6rem;
     }
 
