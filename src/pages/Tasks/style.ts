@@ -24,7 +24,13 @@ export const Container = styled.main`
     margin-top: 1.2rem;
 
     display: grid;
+    place-content: start;
     gap: 1.2rem;
+
+    .emptyMessageTasks {
+      color: ${({ theme }) => theme.colors.LIGHT200}88;
+      font-weight: 700;
+    }
 
     &::-webkit-scrollbar {
       width: 0.75rem;
