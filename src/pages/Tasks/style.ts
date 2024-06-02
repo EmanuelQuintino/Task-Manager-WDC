@@ -30,6 +30,7 @@ export const Container = styled.main`
     .emptyMessageTasks {
       color: ${({ theme }) => theme.colors.LIGHT200}88;
       font-weight: 700;
+      font-size: 1.2rem;
     }
 
     &::-webkit-scrollbar {
@@ -69,6 +70,10 @@ export const Container = styled.main`
 
     .tasksContainer {
       height: 60vh;
+
+      .emptyMessageTasks {
+        font-size: 1.4rem;
+      }
     }
 
     .paginationMobile {

@@ -25,17 +25,18 @@ export function Tasks() {
         </div>
       </div>
 
-      {data && data.length == 0 ? (
-        <div className="tasksContainer" style={{ placeContent: "center" }}>
+      <div
+        className="tasksContainer"
+        style={{ placeContent: data?.length == 0 ? "center" : "start" }}
+      >
+        {data?.length == 0 ? (
           <p className="emptyMessageTasks">Sem tarefas para mostrar</p>
-        </div>
-      ) : (
-        <div className="tasksContainer" style={{ placeContent: "center" }}>
-          {data?.map((task) => {
+        ) : (
+          data?.map((task) => {
             return <TaskCard data={task} />;
-          })}
-        </div>
-      )}
+          })
+        )}
+      </div>
 
       <div className="paginationMobile">
         <Pagination
