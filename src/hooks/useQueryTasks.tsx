@@ -49,7 +49,6 @@ export function useQueryTasks() {
 
     const total = data.tasksInfo.total;
     const calcTotalPages = Math.ceil(total / limit);
-    console.log(totalPages);
 
     if (calcTotalPages != totalPages) setTotalPages(calcTotalPages);
   }

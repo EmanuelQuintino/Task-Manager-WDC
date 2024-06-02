@@ -6,8 +6,6 @@ import { Container } from "./style";
 export function Tasks() {
   const { data, changeLimit, page, totalPages, prevPage, nextPage } = useQueryTasks();
 
-  console.log(data);
-
   return (
     <Container>
       <div className="headPageTasks">

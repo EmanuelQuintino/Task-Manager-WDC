@@ -7,9 +7,14 @@ type PropsTypes = {
 
 export function TaskCard({ data }: PropsTypes) {
   const { title, description, date, status } = data;
+
+  const dateNow = new Date();
+  const taskStatus =
+    status == "completed" ? status : new Date(date) < dateNow ? "late" : "pending";
+
   return (
     <Container>
-      <div className={`status ${status}`}>{status}</div>
+      <div className={`status ${taskStatus}`}>{taskStatus}</div>
 
       <div className="taskDetails">
         <strong>

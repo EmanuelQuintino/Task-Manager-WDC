@@ -25,11 +25,15 @@ export const Container = styled.div`
   }
 
   .completed {
-    background: ${({ theme }) => theme.colors.CHECK}AA;
+    background: ${({ theme }) => theme.colors.CHECK}CC;
   }
 
   .pending {
-    background: ${({ theme }) => theme.colors.DANGER200}AA;
+    background: ${({ theme }) => theme.colors.COMPLEMENTARY}CC;
+  }
+
+  .late {
+    background: ${({ theme }) => theme.colors.DANGER200}CC;
   }
 
   .taskDetails {
