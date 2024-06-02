@@ -33,7 +33,7 @@ export function Tasks() {
           <p className="emptyMessageTasks">Sem tarefas para mostrar</p>
         ) : (
           data?.map((task) => {
-            return <TaskCard data={task} />;
+            return <TaskCard data={task} key={task.id} />;
           })
         )}
       </div>

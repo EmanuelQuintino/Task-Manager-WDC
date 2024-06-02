@@ -19,7 +19,8 @@ export function useQueryTasks() {
       `/tasks?limit=${limit}&offset=${offset}&filter=${filter}`
     );
 
-    setTotalPages(10);
+    await changeTotalPages();
+
     return data.userTasks as TaskDataTypes[];
   }
 
@@ -41,6 +42,16 @@ export function useQueryTasks() {
 
   function changeFilter(value: FilterType) {
     setFilter(value);
+  }
+
+  async function changeTotalPages() {
+    const { data } = await API.get("/user");
+
+    const total = data.tasksInfo.total;
+    const calcTotalPages = Math.ceil(total / limit);
+    console.log(totalPages);
+
+    if (calcTotalPages != totalPages) setTotalPages(calcTotalPages);
   }
 
   const query = useQuery({
