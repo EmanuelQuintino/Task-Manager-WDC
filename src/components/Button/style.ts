@@ -8,7 +8,7 @@ type ButtonContainerStyles = {
 };
 
 export const Container = styled.button<ButtonContainerStyles>`
-  background: ${({ theme, variant }) => theme.colors[variant]}88;
+  background: ${({ theme, variant }) => theme.colors[variant]}AA;
   box-shadow: 1px 1px 1px #0004;
   border-radius: 0.8rem;
   font-size: 1.4rem;
