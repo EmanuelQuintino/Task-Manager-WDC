@@ -25,6 +25,10 @@ export const Container = styled.div<CardContainerStyles>`
   align-items: center;
   justify-content: space-between;
 
+  h3 {
+    font-size: 1.4rem;
+  }
+
   p {
     font-size: 3.2rem;
     margin-top: 0.8rem;
@@ -38,6 +42,10 @@ export const Container = styled.div<CardContainerStyles>`
     padding: 4.2rem;
     width: 35vw;
     height: 28vh;
+
+    h3 {
+      font-size: 1.6rem;
+    }
 
     p {
       font-size: 7.2rem;
