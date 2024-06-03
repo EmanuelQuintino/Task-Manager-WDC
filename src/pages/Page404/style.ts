@@ -5,12 +5,6 @@ export const Container = styled.div`
   place-content: center;
   height: 100vh;
 
-  img {
-    margin-top: 2.4rem;
-    width: 32rem;
-    box-shadow: 1px 1px 2px 1px #0002;
-  }
-
   button {
     background: ${({ theme }) => theme.colors.DANGER400};
     box-shadow: 1px 1px 1px #0004;
@@ -28,11 +22,6 @@ export const Container = styled.div`
   }
 
   @media (min-width: 768px) {
-    img {
-      margin-top: 4.8rem;
-      width: 56rem;
-    }
-
     button {
       font-size: 1.6rem;
       padding: 1.2rem;

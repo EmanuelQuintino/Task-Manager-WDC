@@ -5,7 +5,6 @@ export function Page404() {
   const navigate = useNavigate();
   return (
     <Container>
-      <img src={""} alt="page404" />
       <button onClick={() => navigate("/")}>Voltar</button>
     </Container>
   );
