@@ -14,7 +14,7 @@ const COLORS = {
 } as const;
 
 export const Container = styled.div<CardContainerStyles>`
-  background: ${({ theme, variant }) => theme.colors[COLORS[variant]]}88;
+  background: ${({ theme, variant }) => theme.colors[COLORS[variant]]}AA;
   box-shadow: 1px 1px 1px #0004;
   border-radius: 0.8rem;
   font-weight: 700;
