@@ -9,7 +9,7 @@ export function Tasks() {
   return (
     <Container>
       <div className="headPageTasks">
-        <h2>Tarefas</h2>
+        <h2>Lista</h2>
 
         <div className="paginationDesktop">
           <Pagination
