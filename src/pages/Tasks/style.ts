@@ -21,7 +21,7 @@ export const Container = styled.main`
   .tasksContainer {
     height: 65vh;
     overflow-y: auto;
-    margin-top: 1.6rem;
+    margin-top: 2rem;
 
     display: grid;
     place-content: start;
@@ -52,7 +52,7 @@ export const Container = styled.main`
   }
 
   .paginationMobile {
-    margin-top: 2rem;
+    margin-top: 2.4rem;
   }
 
   @media (min-width: 768px) {
