@@ -21,7 +21,17 @@ export function useQueryTasks() {
 
     await changeTotalPages();
 
-    return data.userTasks as TaskDataTypes[];
+    const tasksUpdatedDate = data.userTasks.map((task: TaskDataTypes) => {
+      const updatedDate = new Date(
+        new Date(task.date).getTime() - 1000 * 60 * 60 * 3
+      ).toISOString();
+      return {
+        ...task,
+        date: updatedDate,
+      };
+    });
+
+    return tasksUpdatedDate as TaskDataTypes[];
   }
 
   function nextPage() {

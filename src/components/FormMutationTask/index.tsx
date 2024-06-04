@@ -32,9 +32,7 @@ export function FormMutationTask({ isUpdate = false }: PropsToForm) {
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const { title, description, date, time, status } = data;
 
-    const dateAndTime = new Date(
-      new Date(date + " " + time).getTime() - 1000 * 60 * 60 * 3 // -3h
-    ).toISOString();
+    const dateAndTime = new Date(new Date(date + " " + time)).toISOString();
 
     mutate({
       title,
