@@ -1,5 +1,6 @@
 import { PropsWithChildren, createContext, useState, useEffect } from "react";
 import { API } from "../configs/api";
+import { AUTH_USER_ID_KEY } from "../utils/authUserIdKey";
 // import { toast } from "react-toastify";
 
 export type SignInTypes = {
@@ -16,7 +17,7 @@ export type SignUpTypes = {
 type AuthContextTypes = {
   signIn: (params: SignInTypes) => Promise<boolean | void>;
   signUp: (params: SignUpTypes) => Promise<boolean | void>;
-  userAuth: { userID?: string };
+  authUserID: string;
   signOut: () => void;
   isLoading: boolean;
 };
@@ -24,7 +25,7 @@ type AuthContextTypes = {
 export const AuthContext = createContext<AuthContextTypes>({} as AuthContextTypes);
 
 export function AuthProvider({ children }: PropsWithChildren) {
-  const [userAuth, setUserAuth] = useState({});
+  const [authUserID, setAuthUserID] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   async function signIn({ email, password }: SignInTypes) {
@@ -34,10 +35,10 @@ export function AuthProvider({ children }: PropsWithChildren) {
 
     return API.post("/login", { email, password })
       .then((response) => {
-        const userData = { userID: response.data.id };
+        const userID = response.data.id;
 
-        setUserAuth(userData);
-        localStorage.setItem("@task_manager:user", JSON.stringify(userData));
+        setAuthUserID(userID);
+        localStorage.setItem(AUTH_USER_ID_KEY, JSON.stringify(userID));
         return true;
       })
       .catch((error) => {
@@ -80,8 +81,8 @@ export function AuthProvider({ children }: PropsWithChildren) {
   }
 
   function signOut() {
-    setUserAuth({});
-    localStorage.removeItem("@task_manager:user");
+    setAuthUserID("");
+    localStorage.removeItem(AUTH_USER_ID_KEY);
 
     API.post("/logout").catch((error) => {
       console.error("erro ao fazer logout:", error);
@@ -89,14 +90,14 @@ export function AuthProvider({ children }: PropsWithChildren) {
   }
 
   useEffect(() => {
-    const userDataStorage = localStorage.getItem("@task_manager:user");
+    const userIDStorage = localStorage.getItem(AUTH_USER_ID_KEY);
 
-    if (userDataStorage) {
-      const userData = JSON.parse(userDataStorage);
+    if (userIDStorage) {
+      const userID = JSON.parse(userIDStorage);
 
       API.get("/user")
         .then((response) => {
-          if (userData.userID == response.data.id) setUserAuth(userData);
+          if (userID == response.data.id) setAuthUserID(userID);
         })
         .catch((error) => {
           console.error(error);
@@ -106,7 +107,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ signIn, signUp, userAuth, signOut, isLoading }}>
+    <AuthContext.Provider value={{ signIn, signUp, authUserID, signOut, isLoading }}>
       {children}
     </AuthContext.Provider>
   );
