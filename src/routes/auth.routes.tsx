@@ -1,8 +1,12 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { SignIn } from "../pages/SignIn";
 import { SignUp } from "../pages/SignUp";
 
-export const authRouter = createBrowserRouter([
-  { path: "/", element: <SignIn /> },
-  { path: "/signup", element: <SignUp /> },
-]);
+export function AuthRouter() {
+  return (
+    <Routes>
+      <Route path="/" element={<SignIn />} />
+      <Route path="/signup" element={<SignUp />} />
+    </Routes>
+  );
+}

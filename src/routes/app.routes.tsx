@@ -1,19 +1,19 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { App } from "../pages/App";
 import { Page404 } from "../pages/Page404";
 import { Home } from "../pages/Home";
 import { Tasks } from "../pages/Tasks";
 import { CreateTasks } from "../pages/CreateTasks";
 
-export const appRouter = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    errorElement: <Page404 />,
-    children: [
-      { path: "/", element: <Home /> },
-      { path: "/tasks", element: <Tasks /> },
-      { path: "/create-task", element: <CreateTasks /> },
-    ],
-  },
-]);
+export function AppRouter() {
+  return (
+    <Routes>
+      <Route path="/" element={<App />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/tasks" element={<Tasks />} />
+        <Route path="/create-task" element={<CreateTasks />} />
+        <Route path="*" element={<Page404 />} />
+      </Route>
+    </Routes>
+  );
+}
