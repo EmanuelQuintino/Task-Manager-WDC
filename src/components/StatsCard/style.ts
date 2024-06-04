@@ -35,7 +35,7 @@ export const Container = styled.div<CardContainerStyles>`
   }
 
   i {
-    font-size: 3.2rem;
+    font-size: 2.8rem;
   }
 
   @media (min-width: 768px) {
@@ -48,11 +48,11 @@ export const Container = styled.div<CardContainerStyles>`
     }
 
     p {
-      font-size: 7.2rem;
+      font-size: 5.6rem;
     }
 
     i {
-      font-size: 7.6rem;
+      font-size: 4.8rem;
     }
   }
 `;

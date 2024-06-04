@@ -26,16 +26,17 @@ export function Pagination({
     <Container>
       <div className="limitBox">
         <span>Quantidade por página: </span>
-        <select name="limit" id="limit" onChange={handleChangeLimit}>
+
+        <select onChange={handleChangeLimit} defaultValue={step * 2}>
           <option>{step * 1}</option>
-          <option selected>{step * 2}</option>
+          <option>{step * 2}</option>
           <option>{step * 3}</option>
           <option>{step * 4}</option>
         </select>
       </div>
 
       <div className="pageNumbers">
-        <span>{page}</span>
+        <span>{totalPages ? page : "-"}</span>
         <span> / </span>
         <span>{totalPages ? totalPages : "-"}</span>
       </div>
