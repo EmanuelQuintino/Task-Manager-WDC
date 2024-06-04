@@ -1,4 +1,5 @@
 import { TaskDataTypes } from "../../@types/tasks";
+import { updateDate3HoursAgo } from "../../utils/updateDate3HoursAgo";
 import { Container } from "./style";
 
 type PropsTypes = {
@@ -8,7 +9,7 @@ type PropsTypes = {
 export function TaskCard({ data }: PropsTypes) {
   const { title, description, date, status } = data;
 
-  const dateNow = new Date();
+  const dateNow = updateDate3HoursAgo(new Date());
   const taskStatus =
     status == "completed" ? status : new Date(date) < dateNow ? "late" : "pending";
 

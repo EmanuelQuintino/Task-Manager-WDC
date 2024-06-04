@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { API } from "../configs/api";
 import { useState } from "react";
 import { TaskDataTypes } from "../@types/tasks";
+import { updateDate3HoursAgo } from "../utils/updateDate3HoursAgo";
 
 type FilterType = "all" | "pending" | "completed";
 
@@ -22,9 +23,7 @@ export function useQueryTasks() {
     await changeTotalPages();
 
     const tasksUpdatedDate = data.userTasks.map((task: TaskDataTypes) => {
-      const updatedDate = new Date(
-        new Date(task.date).getTime() - 1000 * 60 * 60 * 3
-      ).toISOString();
+      const updatedDate = updateDate3HoursAgo(new Date(task.date)).toISOString();
       return {
         ...task,
         date: updatedDate,
