@@ -3,30 +3,15 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: grid;
   place-content: center;
-  height: 100vh;
 
-  button {
-    background: ${({ theme }) => theme.colors.DANGER400};
-    box-shadow: 1px 1px 1px #0004;
-    border-radius: 3.2rem;
+  strong {
     font-size: 1.2rem;
-    font-weight: 700;
-    padding: 1rem;
-    width: 30%;
-    margin: 1.6rem auto 0;
-
-    &:hover {
-      cursor: pointer;
-      filter: brightness(1.05);
-    }
+    color: ${({ theme }) => theme.colors.LIGHT400}44;
   }
 
   @media (min-width: 768px) {
-    button {
-      font-size: 1.6rem;
-      padding: 1.2rem;
-      width: 25%;
-      margin: 2.4rem auto 0;
+    strong {
+      font-size: 1.4rem;
     }
   }
 `;
