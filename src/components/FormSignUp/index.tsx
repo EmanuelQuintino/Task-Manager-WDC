@@ -22,15 +22,11 @@ export function FormSignUp() {
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<Inputs> = async ({ name, email, password }) => {
-    try {
-      const isUserCreated = await signUp({ name, email, password });
+    const isUserCreated = await signUp({ name, email, password });
 
-      if (isUserCreated) {
-        navigate("/");
-        reset();
-      }
-    } catch (error) {
-      console.error("Erro ao criar usuário:", error);
+    if (isUserCreated) {
+      navigate("/");
+      reset();
     }
   };
 
