@@ -91,7 +91,7 @@ export function FormMutationTask({ isUpdate = false }: PropsToForm) {
               Data:
               <input
                 type="date"
-                placeholder=""
+                min={new Date().toISOString().split("T")[0]} // date now
                 {...register("date", {
                   required: "Campo obrigatório",
                 })}
@@ -105,7 +105,6 @@ export function FormMutationTask({ isUpdate = false }: PropsToForm) {
               Hora:
               <input
                 type="time"
-                placeholder=""
                 {...register("time", {
                   required: "Campo obrigatório",
                 })}
