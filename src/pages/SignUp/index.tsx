@@ -3,10 +3,24 @@ import { FormSignUp } from "../../components/FormSignUp";
 import logoRJ from "../../assets/logo-rj.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
+import { useEffect, useState } from "react";
 
 export function SignUp() {
   const navigate = useNavigate();
   const { isLoading } = useAuth();
+  const [deley, setDeley] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDeley(false);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (deley) {
+    return null;
+  }
 
   return (
     <Container>

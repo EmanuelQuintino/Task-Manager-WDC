@@ -8,17 +8,17 @@ import { useEffect, useState } from "react";
 export function SignIn() {
   const navigate = useNavigate();
   const { isLoading } = useAuth();
-  const [render, setRender] = useState(false);
+  const [deley, setDeley] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setRender(true);
+      setDeley(false);
     }, 300);
 
     return () => clearTimeout(timer);
   }, []);
 
-  if (!render) {
+  if (deley) {
     return null;
   }
 
