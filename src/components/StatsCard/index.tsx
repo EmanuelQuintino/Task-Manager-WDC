@@ -12,7 +12,7 @@ export function StatsCard({ title, icon, number, variant = "neutral" }: StatsCar
     <Container variant={variant}>
       <div>
         <h3>{title}</h3>
-        <p>{number}</p>
+        <p>{number || "-"}</p>
       </div>
       <i className="material-icons deleteIcon">{icon}</i>
     </Container>

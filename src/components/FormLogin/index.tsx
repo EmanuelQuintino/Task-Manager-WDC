@@ -2,6 +2,7 @@ import { Container } from "./style";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Button } from "../Button";
 import { useAuth } from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 type InputsTypes = {
   email: string;
@@ -17,10 +18,14 @@ export function FormLogin() {
   } = useForm<InputsTypes>();
 
   const { signIn, isLoading } = useAuth();
+  const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<InputsTypes> = async ({ email, password }) => {
     const isUserLogged = await signIn({ email, password });
-    if (isUserLogged) reset();
+    if (isUserLogged) {
+      reset();
+      navigate("/");
+    }
   };
 
   return (
