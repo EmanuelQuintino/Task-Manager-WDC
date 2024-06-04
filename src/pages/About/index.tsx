@@ -1,9 +1,9 @@
 import { Container } from "./style";
 
-export function Info() {
+export function About() {
   return (
     <Container>
-      <h2>Info</h2>
+      <h2>Sobre</h2>
     </Container>
   );
 }

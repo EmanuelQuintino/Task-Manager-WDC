@@ -4,7 +4,7 @@ import { Page404 } from "../pages/Page404";
 import { Home } from "../pages/Home";
 import { Tasks } from "../pages/Tasks";
 import { CreateTasks } from "../pages/CreateTasks";
-import { Info } from "../pages/Info";
+import { About } from "../pages/About";
 
 export function AppRouter() {
   return (
@@ -13,7 +13,7 @@ export function AppRouter() {
         <Route path="/" element={<Home />} />
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/create-task" element={<CreateTasks />} />
-        <Route path="/info" element={<Info />} />
+        <Route path="/about" element={<About />} />
         <Route path="*" element={<Page404 />} />
       </Route>
     </Routes>

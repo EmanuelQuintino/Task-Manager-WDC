@@ -46,8 +46,8 @@ export function SideBar({ toggleSideBar }: SideBarProps) {
               <MenuItem title="Adicionar" icon="add_circle" />
             </NavLink>
 
-            <NavLink to={"/info"} onClick={toggleSideBar}>
-              <MenuItem title="Info" icon="info" />
+            <NavLink to={"/about"} onClick={toggleSideBar}>
+              <MenuItem title="Sobre" icon="info" />
             </NavLink>
 
             <div onClick={logoutApp} onKeyUp={handleKeyUp} tabIndex={0}>
