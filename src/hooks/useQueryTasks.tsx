@@ -46,6 +46,10 @@ export function useQueryTasks() {
     }
   }
 
+  function changePage(value: number) {
+    setPage(value);
+  }
+
   function changeLimit(value: number) {
     setLimit(value);
   }
@@ -78,6 +82,7 @@ export function useQueryTasks() {
     totalPages,
     nextPage,
     prevPage,
+    changePage,
     changeLimit,
     changeFilter,
   };

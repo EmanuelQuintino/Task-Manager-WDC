@@ -4,7 +4,12 @@ import { useQueryTasks } from "../../hooks/useQueryTasks";
 import { Container } from "./style";
 
 export function Tasks() {
-  const { data, changeLimit, page, totalPages, prevPage, nextPage } = useQueryTasks();
+  const { data, changeLimit, page, changePage, totalPages, prevPage, nextPage } =
+    useQueryTasks();
+
+  if (totalPages > 0 && page > totalPages) {
+    changePage(totalPages);
+  }
 
   return (
     <Container>
