@@ -1,6 +1,6 @@
 import { PropsWithChildren, createContext, useState, useEffect } from "react";
 import { API } from "../configs/api";
-import { AUTH_USER_ID_KEY } from "../utils/authUserIdKey";
+import { USER_ID_AUTH_KEY } from "../utils/userIdAuthKey";
 // import { toast } from "react-toastify";
 
 export type SignInTypes = {
@@ -38,7 +38,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
         const userID = response.data.id;
 
         setAuthUserID(userID);
-        localStorage.setItem(AUTH_USER_ID_KEY, JSON.stringify(userID));
+        localStorage.setItem(USER_ID_AUTH_KEY, JSON.stringify(userID));
         return true;
       })
       .catch((error) => {
@@ -82,7 +82,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
 
   function signOut() {
     setAuthUserID("");
-    localStorage.removeItem(AUTH_USER_ID_KEY);
+    localStorage.removeItem(USER_ID_AUTH_KEY);
 
     API.post("/logout").catch((error) => {
       console.error("erro ao fazer logout:", error);
@@ -90,7 +90,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
   }
 
   useEffect(() => {
-    const userIDStorage = localStorage.getItem(AUTH_USER_ID_KEY);
+    const userIDStorage = localStorage.getItem(USER_ID_AUTH_KEY);
 
     if (userIDStorage) {
       const userID = JSON.parse(userIDStorage);
