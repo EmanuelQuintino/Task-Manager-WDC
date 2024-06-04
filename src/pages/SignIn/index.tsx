@@ -3,10 +3,24 @@ import { Container } from "./style";
 import logoReprogramaJucas from "../../assets/logo-reprograma-jucas.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
+import { useEffect, useState } from "react";
 
 export function SignIn() {
   const navigate = useNavigate();
   const { isLoading } = useAuth();
+  const [render, setRender] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setRender(true);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!render) {
+    return null;
+  }
 
   return (
     <Container>
