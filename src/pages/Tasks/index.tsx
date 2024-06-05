@@ -4,8 +4,17 @@ import { useQueryTasks } from "../../hooks/useQueryTasks";
 import { Container } from "./style";
 
 export function Tasks() {
-  const { data, changeLimit, page, changePage, totalPages, prevPage, nextPage } =
-    useQueryTasks();
+  const {
+    data,
+    isLoading,
+    error,
+    changeLimit,
+    page,
+    changePage,
+    totalPages,
+    prevPage,
+    nextPage,
+  } = useQueryTasks();
 
   if (totalPages > 0 && page > totalPages) {
     changePage(totalPages);
@@ -28,12 +37,12 @@ export function Tasks() {
         </div>
       </div>
 
-      <div
-        className="tasksContainer"
-        style={{ placeContent: data?.length == 0 ? "center" : "start" }}
-      >
+      {isLoading && <span className="loading">Carregando...</span>}
+      {!isLoading && error && <span className="loading">Erro...</span>}
+
+      <div className="tasksContainer">
         {data?.length == 0 ? (
-          <p className="emptyMessageTasks">Sem tarefas para mostrar</p>
+          <p className="loading">Sem tarefas para mostrar</p>
         ) : (
           data?.map((task) => {
             return <TaskCard data={task} key={task.id} />;

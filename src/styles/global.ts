@@ -62,8 +62,8 @@ export const GlobalStyles = createGlobalStyle`
 
   .loading {
     font-weight: 700;
-    font-size: 1.6rem;
-    color: lightgray;
+    font-size: 1.2rem;
+    color: ${({ theme }) => theme.colors.LIGHT200}88;
     display: grid;
     place-content: center;
     position: absolute;
@@ -76,7 +76,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     .loading {
-      font-size: 2.0rem;
+      font-size: 1.4rem;
     } 
   }
 `;

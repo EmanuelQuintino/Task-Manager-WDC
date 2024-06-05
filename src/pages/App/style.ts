@@ -15,6 +15,7 @@ export const Container = styled.div`
     background: ${({ theme }) => theme.colors.DARK700}44;
     display: grid;
     place-content: center;
+    position: relative;
     height: 100%;
     width: 100%;
   }
