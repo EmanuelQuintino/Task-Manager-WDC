@@ -1,5 +1,6 @@
 import { Container } from "./style";
 import { FormMutationTask } from "../FormMutationTask";
+import { useEffect } from "react";
 
 type HandleTaskProps = {
   toggleHandleTask: () => void;
@@ -7,10 +8,24 @@ type HandleTaskProps = {
 
 export function ModalHandleTask({ toggleHandleTask }: HandleTaskProps) {
   function handleKeyUp(event: React.KeyboardEvent<HTMLDivElement>) {
-    if (event.key === "Enter") {
+    if (event.key == "Enter") {
       toggleHandleTask();
     }
   }
+
+  useEffect(() => {
+    function handleKeyUp(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        toggleHandleTask();
+      }
+    }
+
+    window.addEventListener("keyup", handleKeyUp);
+
+    return () => {
+      window.removeEventListener("keyup", handleKeyUp);
+    };
+  }, [toggleHandleTask]);
 
   return (
     <Container onClick={toggleHandleTask}>
