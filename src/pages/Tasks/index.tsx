@@ -1,9 +1,17 @@
+import { useState } from "react";
+import { ModalHandleTask } from "../../components/ModalHandleTask";
 import { Pagination } from "../../components/Pagination";
 import { TaskCard } from "../../components/TaskCard";
 import { useQueryTasks } from "../../hooks/useQueryTasks";
 import { Container } from "./style";
 
 export function Tasks() {
+  const [showModalHandleTask, setShowModalHandleTask] = useState(false);
+
+  function toggleHandleTask() {
+    setShowModalHandleTask((prevState) => (prevState == true ? false : true));
+  }
+
   const {
     data,
     isLoading,
@@ -45,7 +53,7 @@ export function Tasks() {
           <p className="loading">Sem tarefas para mostrar</p>
         ) : (
           data?.map((task) => {
-            return <TaskCard data={task} key={task.id} />;
+            return <TaskCard data={task} key={task.id} onClick={toggleHandleTask} />;
           })
         )}
       </div>
@@ -60,6 +68,8 @@ export function Tasks() {
           changeLimit={changeLimit}
         />
       </div>
+
+      {showModalHandleTask && <ModalHandleTask toggleHandleTask={toggleHandleTask} />}
     </Container>
   );
 }

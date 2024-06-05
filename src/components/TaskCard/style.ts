@@ -10,6 +10,7 @@ export const Container = styled.div`
 
   &:hover {
     filter: brightness(1.1);
+    cursor: pointer;
   }
 
   .status {
@@ -40,15 +41,19 @@ export const Container = styled.div`
     flex: 1;
     padding: 0 2.4rem;
 
-    strong,
-    span {
-      font-size: 1.4rem;
+    strong {
+      font-size: 1.6rem;
     }
 
     p {
       font-size: 1.2rem;
       color: ${({ theme }) => theme.colors.LIGHT200};
     }
+  }
+
+  span {
+    font-size: 1.2rem;
+    text-align: right;
   }
 
   .deleteIcon {
@@ -67,14 +72,16 @@ export const Container = styled.div`
     }
 
     .taskDetails {
-      strong,
-      span {
-        font-size: 1.6rem;
+      strong {
+        font-size: 2rem;
       }
 
       p {
         font-size: 1.6rem;
       }
+    }
+    span {
+      font-size: 1.6rem;
     }
 
     .deleteIcon {

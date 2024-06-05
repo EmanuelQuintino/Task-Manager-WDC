@@ -129,11 +129,19 @@ export function FormMutationTask({ isUpdate = false }: PropsToForm) {
           </section>
         )}
 
-        <Button
-          title={isUpdate ? "Atualizar" : "Adicionar"}
-          loading={false}
-          variant={isUpdate ? "COMPLEMENTARY" : "CHECK"}
-        />
+        {isUpdate ? (
+          <div className="isUpdateBoxButton">
+            <Button
+              title={"Atualizar"}
+              loading={false}
+              variant={"COMPLEMENTARY"}
+              type="submit"
+            />
+            <Button title={"Remover"} loading={false} variant={"DANGER200"} />
+          </div>
+        ) : (
+          <Button title={"Adicionar"} loading={false} variant={"PRIMARY700"} />
+        )}
       </form>
     </Container>
   );

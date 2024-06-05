@@ -4,9 +4,10 @@ import { Container } from "./style";
 
 type PropsTypes = {
   data: TaskDataTypes;
+  onClick: () => void;
 };
 
-export function TaskCard({ data }: PropsTypes) {
+export function TaskCard({ data, onClick }: PropsTypes) {
   const { title, description, date, status } = data;
 
   const dateNow = updateDate3HoursAgo(new Date());
@@ -14,17 +15,15 @@ export function TaskCard({ data }: PropsTypes) {
     status == "completed" ? status : new Date(date) < dateNow ? "late" : "pending";
 
   return (
-    <Container>
+    <Container onClick={onClick}>
       <div className={`status ${taskStatus}`}>{taskStatus}</div>
 
       <div className="taskDetails">
-        <strong>
-          {title} <span>{date}</span>
-        </strong>
+        <strong>{title}</strong>
         <p>{description}</p>
       </div>
 
-      <i className="material-icons deleteIcon">delete</i>
+      <span>{new Date(date).toLocaleString()}</span>
     </Container>
   );
 }
