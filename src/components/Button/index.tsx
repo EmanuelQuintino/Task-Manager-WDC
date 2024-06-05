@@ -9,7 +9,7 @@ type ButtonTypes = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 
 export function Button({
   title,
-  type = "button",
+  type = "submit",
   loading = false,
   variant = "PRIMARY700",
 }: ButtonTypes) {

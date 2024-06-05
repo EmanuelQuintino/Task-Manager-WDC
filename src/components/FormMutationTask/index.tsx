@@ -137,10 +137,20 @@ export function FormMutationTask({ isUpdate = false }: PropsToForm) {
               variant={"COMPLEMENTARY"}
               type="submit"
             />
-            <Button title={"Remover"} loading={false} variant={"DANGER200"} />
+            <Button
+              title={"Remover"}
+              loading={false}
+              variant={"DANGER200"}
+              type="button"
+            />
           </div>
         ) : (
-          <Button title={"Adicionar"} loading={false} variant={"PRIMARY700"} />
+          <Button
+            title={"Adicionar"}
+            loading={false}
+            variant={"PRIMARY700"}
+            type="submit"
+          />
         )}
       </form>
     </Container>
