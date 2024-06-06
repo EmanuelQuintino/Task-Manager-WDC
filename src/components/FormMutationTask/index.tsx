@@ -33,6 +33,8 @@ export function FormMutationTask({ isUpdate = false }: PropsToForm) {
   const { taskData, deleteTask } = useTask();
 
   async function handleDeleteTask(id?: string) {
+    console.log("id:", id);
+
     if (id) {
       const resp = confirm("Deseja remover tarefa?");
 
