@@ -24,7 +24,7 @@ export function StatsCard({
         <h3>
           {title} {total && `(${percentage.toFixed(2)}%)`}
         </h3>
-        <p>{number || "-"}</p>
+        <p>{number == undefined ? "-" : number}</p>
       </div>
       <i className="material-icons">{icon}</i>
     </Container>
