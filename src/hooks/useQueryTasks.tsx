@@ -6,7 +6,7 @@ import { updateDate3HoursAgo } from "../utils/updateDate3HoursAgo";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { UserDataTypes } from "../@types/userData";
 
-type FilterType = "all" | "pending" | "completed";
+type FilterType = "all" | "pending" | "completed" | "late";
 
 export function useQueryTasks() {
   const [page, setPage] = useState(1);
@@ -69,9 +69,9 @@ export function useQueryTasks() {
     const { tasksInfo } = data as UserDataTypes;
 
     const totalAll = tasksInfo.total;
-    const totalCompleted = tasksInfo.completed.total;
-    const totalPending = tasksInfo.pending.open;
-    const totalLate = tasksInfo.pending.late;
+    const totalCompleted = tasksInfo.completed;
+    const totalPending = tasksInfo.pending;
+    const totalLate = tasksInfo.pending;
 
     let total;
     switch (filter) {

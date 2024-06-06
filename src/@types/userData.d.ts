@@ -4,13 +4,8 @@ export type UserDataTypes = {
   email: string;
   tasksInfo: {
     total: number;
-    completed: {
-      total: number;
-    };
-    pending: {
-      total: number;
-      open: number;
-      late: number;
-    };
+    completed: number;
+    pending: number;
+    late: number;
   };
 };

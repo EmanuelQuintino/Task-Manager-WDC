@@ -16,7 +16,7 @@ export function Home() {
             title="Completadas"
             icon="task_alt"
             variant="completed"
-            number={data?.tasksInfo.completed.total}
+            number={data?.tasksInfo.completed}
           />
         </NavLink>
 
@@ -25,7 +25,7 @@ export function Home() {
             title="Pendentes"
             icon="pending_actions"
             variant="pending"
-            number={data?.tasksInfo.pending.open}
+            number={data?.tasksInfo.pending}
           />
         </NavLink>
 
@@ -34,7 +34,7 @@ export function Home() {
             title="Atrasadas"
             icon="event_busy"
             variant="late"
-            number={data?.tasksInfo.pending.late}
+            number={data?.tasksInfo.late}
           />
         </NavLink>
 
