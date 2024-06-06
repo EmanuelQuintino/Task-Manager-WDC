@@ -1,38 +1,46 @@
+import { NavLink } from "react-router-dom";
 import { StatsCard } from "../../components/StatsCard";
 import { useQueryUser } from "../../hooks/useQueryUser";
 import { Container } from "./style";
 
 export function Home() {
   const { data } = useQueryUser();
-  console.log(data);
 
   return (
     <Container>
       <h2>Tarefas</h2>
 
       <div className="statsContainer">
-        <StatsCard
-          title="Completadas"
-          icon="task_alt"
-          variant="completed"
-          number={data?.tasksInfo.completed.total}
-        />
+        <NavLink to={"/tasks?filter=completed&page=1"}>
+          <StatsCard
+            title="Completadas"
+            icon="task_alt"
+            variant="completed"
+            number={data?.tasksInfo.completed.total}
+          />
+        </NavLink>
 
-        <StatsCard
-          title="Pendentes"
-          icon="pending_actions"
-          variant="pending"
-          number={data?.tasksInfo.pending.open}
-        />
+        <NavLink to={"/tasks?filter=pending&page=1"}>
+          <StatsCard
+            title="Pendentes"
+            icon="pending_actions"
+            variant="pending"
+            number={data?.tasksInfo.pending.open}
+          />
+        </NavLink>
 
-        <StatsCard
-          title="Atrasadas"
-          icon="event_busy"
-          variant="late"
-          number={data?.tasksInfo.pending.late}
-        />
+        <NavLink to={"/tasks?filter=late&page=1"}>
+          <StatsCard
+            title="Atrasadas"
+            icon="event_busy"
+            variant="late"
+            number={data?.tasksInfo.pending.late}
+          />
+        </NavLink>
 
-        <StatsCard title="Total" icon="query_stats" number={data?.tasksInfo.total} />
+        <NavLink to={"/tasks?filter=all&page=1"}>
+          <StatsCard title="Total" icon="query_stats" number={data?.tasksInfo.total} />
+        </NavLink>
       </div>
     </Container>
   );

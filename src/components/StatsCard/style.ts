@@ -25,6 +25,11 @@ export const Container = styled.div<CardContainerStyles>`
   align-items: center;
   justify-content: space-between;
 
+  &:hover {
+    filter: brightness(1.1);
+    cursor: pointer;
+  }
+
   h3 {
     font-size: 1.4rem;
   }
