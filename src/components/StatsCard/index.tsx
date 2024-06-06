@@ -17,12 +17,12 @@ export function StatsCard({
   variant = "neutral",
   onClick,
 }: StatsCardTypes) {
-  const percentage = number && total ? (number / total) * 100 : null;
+  const percentage = number && total ? (number / total) * 100 : 0;
   return (
     <Container variant={variant} onClick={onClick}>
       <div>
         <h3>
-          {title} ({number && total && `(${percentage && percentage.toFixed(2)})`})%
+          {title} {total && `(${percentage.toFixed(2)}%)`}
         </h3>
         <p>{number || "-"}</p>
       </div>

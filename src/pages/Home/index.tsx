@@ -16,8 +16,8 @@ export function Home() {
             title="Completadas"
             icon="task_alt"
             variant="completed"
-            number={data.tasksInfo.completed}
-            total={data.tasksInfo.total}
+            number={data?.tasksInfo.completed}
+            total={data?.tasksInfo.total}
           />
         </NavLink>
 
@@ -26,8 +26,8 @@ export function Home() {
             title="Pendentes"
             icon="pending_actions"
             variant="pending"
-            number={data.tasksInfo.pending}
-            total={data.tasksInfo.total}
+            number={data?.tasksInfo.pending}
+            total={data?.tasksInfo.total}
           />
         </NavLink>
 
@@ -36,17 +36,13 @@ export function Home() {
             title="Atrasadas"
             icon="event_busy"
             variant="late"
-            number={data.tasksInfo.late}
-            total={data.tasksInfo.total}
+            number={data?.tasksInfo.late}
+            total={data?.tasksInfo.total}
           />
         </NavLink>
 
         <NavLink to={"/tasks?filter=all&page=1"}>
-          <StatsCard
-            title="Total"
-            icon="query_stats"
-            number={data.tasksInfo.total}
-          />
+          <StatsCard title="Total" icon="query_stats" number={data?.tasksInfo.total} />
         </NavLink>
       </div>
     </Container>
