@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { useTask } from "../../hooks/useTask";
 import { updateDate3HoursAgo } from "../../utils/updateDate3HoursAgo";
 import { toast } from "react-toastify";
+import { useQueryTasks } from "../../hooks/useQueryTasks";
 
 type Inputs = {
   title: string;
@@ -18,9 +19,10 @@ type Inputs = {
 
 type PropsToForm = {
   isUpdate?: boolean;
+  toggleModal?: () => void;
 };
 
-export function FormMutationTask({ isUpdate = false }: PropsToForm) {
+export function FormMutationTask({ isUpdate = false, toggleModal }: PropsToForm) {
   const {
     register,
     handleSubmit,
@@ -30,17 +32,21 @@ export function FormMutationTask({ isUpdate = false }: PropsToForm) {
 
   const { mutate, isSuccess } = useTaskCreate();
   const navigate = useNavigate();
+
   const { taskData, deleteTask } = useTask();
+  const { refetchQueryTask } = useQueryTasks();
 
   async function handleDeleteTask(id?: string) {
-    console.log("id:", id);
-
-    if (id) {
+    if (id && toggleModal) {
       const resp = confirm("Deseja remover tarefa?");
 
       if (resp) {
         const isDeleted = await deleteTask(id);
-        if (isDeleted) navigate("/tasks");
+        if (isDeleted) {
+          navigate("/tasks");
+          refetchQueryTask();
+          toggleModal();
+        }
       }
     } else {
       toast.dismiss();

@@ -42,7 +42,7 @@ export function ModalHandleTask({ toggleModal }: HandleTaskProps) {
               close
             </i>
           </div>
-          <FormMutationTask isUpdate={true} />
+          <FormMutationTask isUpdate={true} toggleModal={toggleModal} />
         </div>
       </div>
     </Container>
