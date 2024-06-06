@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 interface TaskContextProps {
   taskData: TaskDataTypes;
   setTaskData: (task: TaskDataTypes) => void;
-  deleteTask: (id: string) => Promise<string | void>;
+  deleteTask: (id: string) => Promise<boolean | void>;
 }
 
 export const TaskContext = createContext({} as TaskContextProps);
