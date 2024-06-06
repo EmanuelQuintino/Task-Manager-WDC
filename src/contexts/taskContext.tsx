@@ -19,6 +19,7 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
       .then((response) => {
         toast.dismiss();
         toast.success(response.data.message || "Tarefa criada com sucesso!");
+        return true;
       })
       .catch((error) => {
         toast.dismiss();
