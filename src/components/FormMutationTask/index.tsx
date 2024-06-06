@@ -4,6 +4,9 @@ import { Button } from "../Button";
 import { useNavigate } from "react-router-dom";
 import { useTaskCreate } from "../../hooks/useTaskCreate";
 import { useEffect } from "react";
+import { useTask } from "../../hooks/useTask";
+import { updateDate3HoursAgo } from "../../utils/updateDate3HoursAgo";
+import { toast } from "react-toastify";
 
 type Inputs = {
   title: string;
@@ -26,20 +29,38 @@ export function FormMutationTask({ isUpdate = false }: PropsToForm) {
   } = useForm<Inputs>();
 
   const { mutate, isSuccess } = useTaskCreate();
-
   const navigate = useNavigate();
+  const { taskData, deleteTask } = useTask();
+
+  async function handleDeleteTask(id?: string) {
+    if (id) {
+      const resp = confirm("Deseja remover tarefa?");
+
+      if (resp) {
+        const isDeleted = await deleteTask(id);
+        if (isDeleted) navigate("/tasks");
+      }
+    } else {
+      toast.dismiss();
+      toast.error("Tarefa não informada!");
+    }
+  }
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const { title, description, date, time, status } = data;
 
     const dateAndTime = new Date(new Date(date + " " + time)).toISOString();
 
-    mutate({
-      title,
-      description,
-      date: dateAndTime,
-      status,
-    });
+    if (isUpdate) {
+      console.log(taskData.id, { ...data, date: dateAndTime });
+    } else {
+      mutate({
+        title,
+        description,
+        date: dateAndTime,
+        status,
+      });
+    }
   };
 
   useEffect(() => {
@@ -48,6 +69,20 @@ export function FormMutationTask({ isUpdate = false }: PropsToForm) {
       reset();
     }
   }, [isSuccess, navigate, reset]);
+
+  useEffect(() => {
+    if (isUpdate) {
+      reset({
+        title: taskData.title || "",
+        description: taskData.description || "",
+        date: taskData.date ? new Date(taskData.date).toISOString().split("T")[0] : "",
+        time: taskData.date
+          ? new Date(taskData.date).toISOString().split("T")[1].slice(0, 5)
+          : "",
+        status: taskData.status || "pending",
+      });
+    }
+  }, [isUpdate, taskData, reset]);
 
   return (
     <Container>
@@ -89,7 +124,7 @@ export function FormMutationTask({ isUpdate = false }: PropsToForm) {
               Data:
               <input
                 type="date"
-                min={new Date().toISOString().split("T")[0]} // date now
+                min={updateDate3HoursAgo(new Date()).toISOString().split("T")[0]} // date now
                 {...register("date", {
                   required: "Campo obrigatório",
                 })}
@@ -122,7 +157,7 @@ export function FormMutationTask({ isUpdate = false }: PropsToForm) {
                 })}
               >
                 <option value="pending">Pendente</option>
-                <option value="completed">Concluído</option>
+                <option value="completed">Concluída</option>
               </select>
             </label>
             <span className="inputError">{errors.status?.message}</span>
@@ -142,6 +177,7 @@ export function FormMutationTask({ isUpdate = false }: PropsToForm) {
               loading={false}
               variant={"DANGER200"}
               type="button"
+              onClick={() => handleDeleteTask(taskData.id)}
             />
           </div>
         ) : (

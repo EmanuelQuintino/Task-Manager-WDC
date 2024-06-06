@@ -20,7 +20,7 @@ export function SideBar({ toggleSideBar }: SideBarProps) {
   }
 
   function handleKeyUp(event: React.KeyboardEvent<HTMLDivElement>) {
-    if (event.key === "Enter") {
+    if (event.key == "Enter") {
       logoutApp();
     }
   }
@@ -42,7 +42,7 @@ export function SideBar({ toggleSideBar }: SideBarProps) {
               <MenuItem title="Tarefas" icon="task" />
             </NavLink>
 
-            <NavLink to={"/create-task"} onClick={toggleSideBar}>
+            <NavLink to={"/create-tasks"} onClick={toggleSideBar}>
               <MenuItem title="Adicionar" icon="add_circle" />
             </NavLink>
 

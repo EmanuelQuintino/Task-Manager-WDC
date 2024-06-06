@@ -4,12 +4,20 @@ import { Pagination } from "../../components/Pagination";
 import { TaskCard } from "../../components/TaskCard";
 import { useQueryTasks } from "../../hooks/useQueryTasks";
 import { Container } from "./style";
+import { TaskDataTypes } from "../../@types/tasks";
+import { useTask } from "../../hooks/useTask";
 
 export function Tasks() {
   const [showModalHandleTask, setShowModalHandleTask] = useState(false);
+  const { setTaskData } = useTask();
 
-  function toggleHandleTask() {
+  function toggleModal() {
     setShowModalHandleTask((prevState) => (prevState == true ? false : true));
+  }
+
+  function addTaskToggleModal(task: TaskDataTypes) {
+    toggleModal();
+    setTaskData(task);
   }
 
   const {
@@ -53,7 +61,13 @@ export function Tasks() {
           <p className="loading">Sem tarefas para mostrar</p>
         ) : (
           data?.map((task) => {
-            return <TaskCard data={task} key={task.id} onClick={toggleHandleTask} />;
+            return (
+              <TaskCard
+                data={task}
+                key={task.id}
+                onClick={() => addTaskToggleModal(task)}
+              />
+            );
           })
         )}
       </div>
@@ -69,7 +83,7 @@ export function Tasks() {
         />
       </div>
 
-      {showModalHandleTask && <ModalHandleTask toggleHandleTask={toggleHandleTask} />}
+      {showModalHandleTask && <ModalHandleTask toggleModal={toggleModal} />}
     </Container>
   );
 }

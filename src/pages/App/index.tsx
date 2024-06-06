@@ -15,7 +15,7 @@ export function App() {
         </section>
 
         <Outlet />
-        {/* outlet is main pages*/}
+        {/* outlet is main pages */}
       </article>
 
       <Footer />
