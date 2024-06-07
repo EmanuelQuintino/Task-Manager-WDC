@@ -29,32 +29,27 @@ export function useQueryTasks() {
     return data.userTasks as TaskDataTypes[];
   }
 
-    async function changeTotalPages(filter = "all", limit: number) {
+  async function changeTotalPages(filter = "all", limit: number) {
     const { data } = await API.get("/user");
     const { tasksInfo } = data as UserDataTypes;
-
-    const totalAll = tasksInfo.total;
-    const totalCompleted = tasksInfo.completed;
-    const totalPending = tasksInfo.pending;
-    const totalLate = tasksInfo.late;
 
     let total;
     switch (filter) {
       case "all":
-        total = totalAll;
+        total = tasksInfo.total;
         break;
       case "completed":
-        total = totalCompleted;
+        total = tasksInfo.completed;
         break;
       case "pending":
-        total = totalPending;
+        total = tasksInfo.pending;
         break;
       case "late":
-        total = totalLate;
+        total = tasksInfo.late;
         break;
 
       default:
-        total = totalAll;
+        total = tasksInfo.total;
         break;
     }
 
