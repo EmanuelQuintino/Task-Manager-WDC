@@ -29,6 +29,39 @@ export function useQueryTasks() {
     return data.userTasks as TaskDataTypes[];
   }
 
+    async function changeTotalPages(filter = "all", limit: number) {
+    const { data } = await API.get("/user");
+    const { tasksInfo } = data as UserDataTypes;
+
+    const totalAll = tasksInfo.total;
+    const totalCompleted = tasksInfo.completed;
+    const totalPending = tasksInfo.pending;
+    const totalLate = tasksInfo.late;
+
+    let total;
+    switch (filter) {
+      case "all":
+        total = totalAll;
+        break;
+      case "completed":
+        total = totalCompleted;
+        break;
+      case "pending":
+        total = totalPending;
+        break;
+      case "late":
+        total = totalLate;
+        break;
+
+      default:
+        total = totalAll;
+        break;
+    }
+
+    const calcTotalPages = Math.ceil(total / limit);
+    if (calcTotalPages != totalPages) setTotalPages(calcTotalPages);
+  }
+
   function nextPage() {
     if (page < totalPages) {
       setPage((prevPage) => prevPage + 1);
@@ -53,39 +86,6 @@ export function useQueryTasks() {
 
   function changeFilter(value: FilterType) {
     setFilter(value);
-  }
-
-  async function changeTotalPages(filter = "all", limit: number) {
-    const { data } = await API.get("/user");
-    const { tasksInfo } = data as UserDataTypes;
-
-    const totalAll = tasksInfo.total;
-    const totalCompleted = tasksInfo.completed;
-    const totalPending = tasksInfo.pending;
-    const totalLate = tasksInfo.pending;
-
-    let total;
-    switch (filter) {
-      case "all":
-        total = totalAll;
-        break;
-      case "completed":
-        total = totalCompleted;
-        break;
-      case "pending":
-        total = totalPending;
-        break;
-      case "late":
-        total = totalLate;
-        break;
-
-      default:
-        total = totalAll;
-        break;
-    }
-
-    const calcTotalPages = Math.ceil(total / limit);
-    if (calcTotalPages != totalPages) setTotalPages(calcTotalPages);
   }
 
   useEffect(() => {
