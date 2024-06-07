@@ -5,7 +5,7 @@ import { TaskDataTypes } from "../@types/tasks";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { UserDataTypes } from "../@types/user";
 
-type FilterType = "all" | "pending" | "completed" | "late";
+type FilterType = "all" | "completed" | "pending" | "late";
 
 export function useQueryTasks() {
   const [page, setPage] = useState(1);
