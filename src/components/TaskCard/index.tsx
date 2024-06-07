@@ -9,7 +9,7 @@ type PropsTypes = {
 export function TaskCard({ data, onClick }: PropsTypes) {
   const { title, description, date, status } = data;
 
-  const isCompleted = status === "completed";
+  const isCompleted = status == "completed";
   const isLate = new Date(date) < new Date();
 
   const taskStatus = isCompleted ? "completed" : isLate ? "late" : "pending";
