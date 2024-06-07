@@ -40,7 +40,6 @@ export function FormMutationTask({ isUpdate = false, toggleModal }: PropsToForm)
       if (resp) {
         const isDeleted = await deleteTask(id);
         if (isDeleted) {
-          navigate("/tasks?filter=all&page=1");
           refetchQueryTask();
           toggleModal();
         }
@@ -75,20 +74,19 @@ export function FormMutationTask({ isUpdate = false, toggleModal }: PropsToForm)
   };
 
   useEffect(() => {
-    if (toggleModal && (mutateTaskCreate.isSuccess || mutateTaskUpdate.isSuccess)) {
+    if (mutateTaskCreate.isSuccess) {
       navigate("/tasks?filter=all&page=1");
+      reset();
+    }
+  }, [mutateTaskCreate.isSuccess, navigate, reset]);
+
+  useEffect(() => {
+    if (toggleModal && mutateTaskUpdate.isSuccess) {
       refetchQueryTask();
       toggleModal();
       reset();
     }
-  }, [
-    mutateTaskCreate.isSuccess,
-    mutateTaskUpdate.isSuccess,
-    navigate,
-    reset,
-    toggleModal,
-    refetchQueryTask,
-  ]);
+  }, [mutateTaskUpdate.isSuccess, refetchQueryTask, toggleModal, reset]);
 
   useEffect(() => {
     if (isUpdate) {
@@ -204,7 +202,7 @@ export function FormMutationTask({ isUpdate = false, toggleModal }: PropsToForm)
           <Button
             title={"Adicionar"}
             loading={mutateTaskCreate.isPending}
-            variant={"CHECK2"}
+            variant={"CHECK500"}
             type="submit"
           />
         )}

@@ -20,14 +20,16 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
     setIsloading(true);
     return await API.delete(`/task/${id}`)
       .then((response) => {
-        toast.dismiss();
-        toast.success(response.data.message || "Tarefa criada com sucesso!");
-        return true;
+        if (response.status == 200) {
+          toast.dismiss();
+          toast.success("Tarefa removida com sucesso!");
+          return true;
+        }
       })
       .catch((error) => {
         toast.dismiss();
         toast.error(
-          error.response?.data?.message || "Um erro inesperado aconteceu ao criar tarefa!"
+          error.response?.data?.message || "Erro inesperado ao remover tarefa!"
         );
       })
       .finally(() => {

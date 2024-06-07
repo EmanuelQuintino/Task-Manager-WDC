@@ -7,7 +7,7 @@ type CardContainerStyles = {
 };
 
 const COLORS = {
-  completed: "CHECK1",
+  completed: "CHECK400",
   pending: "COMPLEMENTARY1",
   late: "DANGER400",
   neutral: "LIGHT200",

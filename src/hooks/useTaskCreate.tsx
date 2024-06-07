@@ -13,8 +13,10 @@ export const useTaskCreate = () => {
   const mutate = useMutation({
     mutationFn: createTask,
     onSuccess: (response) => {
-      toast.dismiss();
-      toast.success(response.data.message || "Tarefa criada com sucesso!");
+      if (response.status == 201) {
+        toast.dismiss();
+        toast.success("Tarefa criada com sucesso!");
+      }
     },
     onError: (error: AxiosError<{ message: string }>) => {
       toast.dismiss();

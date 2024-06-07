@@ -13,8 +13,10 @@ export const useTaskUpdate = () => {
   const mutate = useMutation({
     mutationFn: updateTask,
     onSuccess: (response) => {
-      toast.dismiss();
-      toast.success(response.data.message || "Tarefa atualizada com sucesso!");
+      if (response.status == 200) {
+        toast.dismiss();
+        toast.success("Tarefa atualizada com sucesso!");
+      }
     },
     onError: (error: AxiosError<{ message: string }>) => {
       toast.dismiss();

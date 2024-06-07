@@ -26,7 +26,7 @@ export const Container = styled.div`
   }
 
   .completed {
-    background: ${({ theme }) => theme.colors.CHECK2}CC;
+    background: ${({ theme }) => theme.colors.CHECK500}CC;
   }
 
   .pending {

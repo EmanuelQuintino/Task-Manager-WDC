@@ -1,7 +1,6 @@
 import { PropsWithChildren, createContext, useState, useEffect } from "react";
 import { API } from "../configs/api";
 import { USER_ID_AUTH_KEY } from "../utils/userIdAuthKey";
-// import { toast } from "react-toastify";
 
 export type SignInTypes = {
   email: string;
@@ -36,7 +35,6 @@ export function AuthProvider({ children }: PropsWithChildren) {
     return API.post("/login", { email, password })
       .then((response) => {
         const userID = response.data.id;
-
         setAuthUserID(userID);
         localStorage.setItem(USER_ID_AUTH_KEY, JSON.stringify(userID));
         return true;
@@ -63,7 +61,9 @@ export function AuthProvider({ children }: PropsWithChildren) {
 
     return API.post("/user", { name, email, password })
       .then((response) => {
-        alert(response?.data.message);
+        if (response?.data.status == 201) {
+          alert("Usuário criado com sucesso!");
+        }
         return true;
       })
       .catch((error) => {
