@@ -30,7 +30,7 @@ export const Container = styled.div`
   }
 
   .pending {
-    background: ${({ theme }) => theme.colors.COMPLEMENTARY2}CC;
+    background: ${({ theme }) => theme.colors.COMPLEMENTARY500}CC;
   }
 
   .late {

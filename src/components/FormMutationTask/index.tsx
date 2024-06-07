@@ -187,7 +187,7 @@ export function FormMutationTask({ isUpdate = false, toggleModal }: PropsToForm)
             <Button
               title={"Atualizar"}
               loading={mutateTaskUpdate.isPending}
-              variant={"COMPLEMENTARY2"}
+              variant={"COMPLEMENTARY500"}
               type="submit"
             />
             <Button

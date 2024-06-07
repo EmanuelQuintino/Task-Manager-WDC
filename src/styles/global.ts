@@ -51,7 +51,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .inputError {
-    color: ${({ theme }) => theme.colors.COMPLEMENTARY};
+    color: ${({ theme }) => theme.colors.COMPLEMENTARY400};
     font-size: 1.2rem;
     display: block;
     position: absolute;
