@@ -8,14 +8,10 @@ import { useTask } from "../../hooks/useTask";
 import { updateDate3HoursAgo } from "../../utils/updateDate3HoursAgo";
 import { toast } from "react-toastify";
 import { useQueryTasks } from "../../hooks/useQueryTasks";
+import { useTaskUpdate } from "../../hooks/useTaskUpdate";
+import { TaskDataTypes } from "../../@types/tasks";
 
-type Inputs = {
-  title: string;
-  description: string;
-  date: string;
-  time: string;
-  status: "completed" | "pending";
-};
+type Inputs = TaskDataTypes & { time: string };
 
 type PropsToForm = {
   isUpdate?: boolean;
@@ -30,11 +26,12 @@ export function FormMutationTask({ isUpdate = false, toggleModal }: PropsToForm)
     reset,
   } = useForm<Inputs>();
 
-  const { mutate, isPending, isSuccess } = useTaskCreate();
+  const mutateTaskCreate = useTaskCreate();
+  const mutateTaskUpdate = useTaskUpdate();
   const navigate = useNavigate();
 
-  const { taskData, deleteTask } = useTask();
   const { refetchQueryTask } = useQueryTasks();
+  const { taskData, deleteTask, isLoading } = useTask();
 
   async function handleDeleteTask(id?: string) {
     if (id && toggleModal) {
@@ -60,9 +57,15 @@ export function FormMutationTask({ isUpdate = false, toggleModal }: PropsToForm)
     const dateAndTime = new Date(new Date(date + " " + time)).toISOString();
 
     if (isUpdate) {
-      console.log(taskData.id, { ...data, date: dateAndTime });
+      mutateTaskUpdate.mutate({
+        id: taskData.id,
+        title,
+        description,
+        date: dateAndTime,
+        status,
+      });
     } else {
-      mutate({
+      mutateTaskCreate.mutate({
         title,
         description,
         date: dateAndTime,
@@ -72,11 +75,20 @@ export function FormMutationTask({ isUpdate = false, toggleModal }: PropsToForm)
   };
 
   useEffect(() => {
-    if (isSuccess) {
+    if (toggleModal && (mutateTaskCreate.isSuccess || mutateTaskUpdate.isSuccess)) {
       navigate("/tasks?filter=all&page=1");
+      refetchQueryTask();
+      toggleModal();
       reset();
     }
-  }, [isSuccess, navigate, reset]);
+  }, [
+    mutateTaskCreate.isSuccess,
+    mutateTaskUpdate.isSuccess,
+    navigate,
+    reset,
+    toggleModal,
+    refetchQueryTask,
+  ]);
 
   useEffect(() => {
     if (isUpdate) {
@@ -176,13 +188,13 @@ export function FormMutationTask({ isUpdate = false, toggleModal }: PropsToForm)
           <div className="isUpdateBoxButton">
             <Button
               title={"Atualizar"}
-              loading={false}
+              loading={mutateTaskUpdate.isPending}
               variant={"COMPLEMENTARY2"}
               type="submit"
             />
             <Button
               title={"Remover"}
-              loading={false}
+              loading={isLoading}
               variant={"DANGER200"}
               type="button"
               onClick={() => handleDeleteTask(taskData.id)}
@@ -191,7 +203,7 @@ export function FormMutationTask({ isUpdate = false, toggleModal }: PropsToForm)
         ) : (
           <Button
             title={"Adicionar"}
-            loading={isPending}
+            loading={mutateTaskCreate.isPending}
             variant={"CHECK2"}
             type="submit"
           />

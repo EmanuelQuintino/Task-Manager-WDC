@@ -7,14 +7,17 @@ interface TaskContextProps {
   taskData: TaskDataTypes;
   setTaskData: (task: TaskDataTypes) => void;
   deleteTask: (id: string) => Promise<boolean | void>;
+  isLoading: boolean;
 }
 
 export const TaskContext = createContext({} as TaskContextProps);
 
 export const TaskProvider = ({ children }: { children: ReactNode }) => {
   const [taskData, setTaskData] = useState({} as TaskDataTypes);
+  const [isLoading, setIsloading] = useState(false);
 
   async function deleteTask(id: string) {
+    setIsloading(true);
     return await API.delete(`/task/${id}`)
       .then((response) => {
         toast.dismiss();
@@ -26,11 +29,14 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
         toast.error(
           error.response?.data?.message || "Um erro inesperado aconteceu ao criar tarefa!"
         );
+      })
+      .finally(() => {
+        setIsloading(false);
       });
   }
 
   return (
-    <TaskContext.Provider value={{ taskData, setTaskData, deleteTask }}>
+    <TaskContext.Provider value={{ taskData, setTaskData, deleteTask, isLoading }}>
       {children}
     </TaskContext.Provider>
   );

@@ -6,7 +6,6 @@ import { TaskDataTypes } from "../@types/tasks";
 
 async function createTask(data: TaskDataTypes) {
   const { title, description, date, status } = data;
-
   return await API.post("/task", { title, description, date, status });
 }
 
@@ -19,9 +18,7 @@ export const useTaskCreate = () => {
     },
     onError: (error: AxiosError<{ message: string }>) => {
       toast.dismiss();
-      toast.error(
-        error.response?.data?.message || "Um erro inesperado aconteceu ao criar tarefa!"
-      );
+      toast.error(error.response?.data?.message || "Erro inesperado ao criar tarefa!");
     },
   });
 
