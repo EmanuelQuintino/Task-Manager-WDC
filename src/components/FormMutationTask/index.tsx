@@ -43,7 +43,7 @@ export function FormMutationTask({ isUpdate = false, toggleModal }: PropsToForm)
       if (resp) {
         const isDeleted = await deleteTask(id);
         if (isDeleted) {
-          navigate("/tasks");
+          navigate("/tasks?filter=all&page=1");
           refetchQueryTask();
           toggleModal();
         }
@@ -73,7 +73,7 @@ export function FormMutationTask({ isUpdate = false, toggleModal }: PropsToForm)
 
   useEffect(() => {
     if (isSuccess) {
-      navigate("/tasks");
+      navigate("/tasks?filter=all&page=1");
       reset();
     }
   }, [isSuccess, navigate, reset]);
@@ -132,7 +132,7 @@ export function FormMutationTask({ isUpdate = false, toggleModal }: PropsToForm)
               Data:
               <input
                 type="date"
-                min={updateDate3HoursAgo(new Date()).toISOString().split("T")[0]} // date now
+                min={updateDate3HoursAgo(new Date()).toISOString().split("T")[0]}
                 {...register("date", {
                   required: "Campo obrigatório",
                 })}
@@ -146,6 +146,7 @@ export function FormMutationTask({ isUpdate = false, toggleModal }: PropsToForm)
               Hora:
               <input
                 type="time"
+                step={300}
                 {...register("time", {
                   required: "Campo obrigatório",
                 })}

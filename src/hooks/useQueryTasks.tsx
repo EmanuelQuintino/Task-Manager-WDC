@@ -2,7 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import { API } from "../configs/api";
 import { useEffect, useState } from "react";
 import { TaskDataTypes } from "../@types/tasks";
-import { updateDate3HoursAgo } from "../utils/updateDate3HoursAgo";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { UserDataTypes } from "../@types/userData";
 
@@ -27,15 +26,7 @@ export function useQueryTasks() {
       `/tasks?limit=${limit}&offset=${offset}&filter=${filter}`
     );
 
-    const tasksUpdatedDate = data.userTasks.map((task: TaskDataTypes) => {
-      const updatedDate = updateDate3HoursAgo(new Date(task.date)).toISOString();
-      return {
-        ...task,
-        date: updatedDate,
-      };
-    });
-
-    return tasksUpdatedDate as TaskDataTypes[];
+    return data.userTasks as TaskDataTypes[];
   }
 
   function nextPage() {
