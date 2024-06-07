@@ -30,7 +30,7 @@ export function FormMutationTask({ isUpdate = false, toggleModal }: PropsToForm)
     reset,
   } = useForm<Inputs>();
 
-  const { mutate, isSuccess } = useTaskCreate();
+  const { mutate, isPending, isSuccess } = useTaskCreate();
   const navigate = useNavigate();
 
   const { taskData, deleteTask } = useTask();
@@ -146,7 +146,6 @@ export function FormMutationTask({ isUpdate = false, toggleModal }: PropsToForm)
               Hora:
               <input
                 type="time"
-                step={300}
                 {...register("time", {
                   required: "Campo obrigatório",
                 })}
@@ -178,7 +177,7 @@ export function FormMutationTask({ isUpdate = false, toggleModal }: PropsToForm)
             <Button
               title={"Atualizar"}
               loading={false}
-              variant={"COMPLEMENTARY"}
+              variant={"COMPLEMENTARY2"}
               type="submit"
             />
             <Button
@@ -192,8 +191,8 @@ export function FormMutationTask({ isUpdate = false, toggleModal }: PropsToForm)
         ) : (
           <Button
             title={"Adicionar"}
-            loading={false}
-            variant={"PRIMARY700"}
+            loading={isPending}
+            variant={"CHECK2"}
             type="submit"
           />
         )}

@@ -26,11 +26,11 @@ export const Container = styled.div`
   }
 
   .completed {
-    background: ${({ theme }) => theme.colors.CHECK}CC;
+    background: ${({ theme }) => theme.colors.CHECK2}CC;
   }
 
   .pending {
-    background: ${({ theme }) => theme.colors.COMPLEMENTARY}CC;
+    background: ${({ theme }) => theme.colors.COMPLEMENTARY2}CC;
   }
 
   .late {

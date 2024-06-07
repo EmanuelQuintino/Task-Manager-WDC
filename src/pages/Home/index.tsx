@@ -42,7 +42,12 @@ export function Home() {
         </NavLink>
 
         <NavLink to={"/tasks?filter=all&page=1"}>
-          <StatsCard title="Total" icon="query_stats" number={data?.tasksInfo.total} />
+          <StatsCard
+            title="Total"
+            icon="query_stats"
+            variant="neutral"
+            number={data?.tasksInfo.total}
+          />
         </NavLink>
       </div>
     </Container>

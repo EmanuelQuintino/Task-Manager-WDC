@@ -22,7 +22,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
               theme={"dark"}
               autoClose={3000}
               closeOnClick={true}
-              pauseOnHover={false}
+              pauseOnHover={true}
               position={"top-right"}
               pauseOnFocusLoss={false}
             />

@@ -3,7 +3,7 @@ import { API } from "../configs/api";
 import { useEffect, useState } from "react";
 import { TaskDataTypes } from "../@types/tasks";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { UserDataTypes } from "../@types/userData";
+import { UserDataTypes } from "../@types/user";
 
 type FilterType = "all" | "pending" | "completed" | "late";
 
