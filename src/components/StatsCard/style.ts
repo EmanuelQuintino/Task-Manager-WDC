@@ -24,6 +24,7 @@ export const Container = styled.div<CardContainerStyles>`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: 100ms;
 
   &:hover {
     filter: brightness(1.1);

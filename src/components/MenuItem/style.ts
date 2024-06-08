@@ -4,6 +4,7 @@ export const Container = styled.li`
   display: flex;
   gap: 0.8rem;
   padding: 0.8rem 1.8rem;
+  transition: 0ms;
 
   &:hover {
     cursor: pointer;

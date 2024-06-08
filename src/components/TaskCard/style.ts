@@ -7,9 +7,10 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: 100ms;
 
   &:hover {
-    filter: brightness(1.1);
+    filter: brightness(1.2);
     cursor: pointer;
   }
 

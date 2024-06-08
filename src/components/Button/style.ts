@@ -16,6 +16,7 @@ export const Container = styled.button<ButtonContainerStyles>`
   padding: 1.2rem;
   width: 100%;
   margin: 0 auto;
+  transition: 100ms;
 
   &:hover {
     filter: brightness(0.9);

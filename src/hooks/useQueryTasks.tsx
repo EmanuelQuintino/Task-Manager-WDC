@@ -83,6 +83,7 @@ export function useQueryTasks() {
     setFilter(value);
   }
 
+  // verificar create-page link
   useEffect(() => {
     const pageQuery = Number(searchParams[0].get("page"));
     const filterQuery = searchParams[0].get("filter") as FilterType;
