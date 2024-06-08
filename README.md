@@ -1,8 +1,8 @@
 # Task Manager
 
-![home-layout](./src/assets/login-layout.png)
-
 The Task Manager is a `Full-Stack` Web Application developed as a final project of `Reprograma Jucás` [Web Development Course](https://emanuelquintino.github.io/Page-WDC/). This application allows the user to organize their tasks, offering management and monitoring capabilities for their activities.
+
+![home-layout](./src/assets/login-layout.png)
 
 ## Features
 
