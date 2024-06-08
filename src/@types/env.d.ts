@@ -2,7 +2,7 @@
 
 interface ImportMetaEnv {
   readonly VITE_API: string;
-  readonly VITE_USER_ID_AUTH_KEY: string;
+  readonly VITE_STORAGE_USERID_KEY: string;
 }
 
 interface ImportMeta {

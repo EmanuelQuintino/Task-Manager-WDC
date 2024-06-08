@@ -1,1 +1,1 @@
-export const USER_ID_AUTH_KEY = import.meta.env.VITE_USER_ID_AUTH_KEY;
+export const STORAGE_USERID_KEY = import.meta.env.VITE_STORAGE_USERID_KEY;
