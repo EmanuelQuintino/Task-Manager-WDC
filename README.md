@@ -40,20 +40,6 @@ $ npm run dev
 VITE_API=""
 ```
 
-## Contribution
-
-To contribute improvements, bug fixes or new features, simply follow these steps:
-
-1. Fork the project
-2. Create a branch for your contribution
-3. Make the desired changes
-4. Submit a pull request
-
-```bash
-# create branch
-$ git checkout -b firstname-lastname
-```
-
 ## Links
 
 - [Deploy](https://task-manager-seven-indol.vercel.app/)
