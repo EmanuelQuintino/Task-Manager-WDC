@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { API } from "../configs/api";
 import { useEffect, useState } from "react";
 import { TaskDataTypes } from "../@types/tasks";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { UserDataTypes } from "../@types/user";
 
 type FilterType = "all" | "completed" | "pending" | "late";
@@ -14,6 +14,7 @@ export function useQueryTasks() {
   const [filter, setFilter] = useState<FilterType>("all");
 
   const navigate = useNavigate();
+  const location = useLocation();
   const searchParams = useSearchParams();
 
   async function getTasks({ page = 1, limit = 10, filter = "all" }) {
@@ -83,8 +84,9 @@ export function useQueryTasks() {
     setFilter(value);
   }
 
-  // verificar create-page link
   useEffect(() => {
+    if (location.pathname != "/tasks") return;
+
     const pageQuery = Number(searchParams[0].get("page"));
     const filterQuery = searchParams[0].get("filter") as FilterType;
 
@@ -104,7 +106,7 @@ export function useQueryTasks() {
         return;
       }
     }
-  }, [page, totalPages, searchParams, navigate]);
+  }, [page, totalPages, searchParams, navigate, location]);
 
   const query = useQuery({
     queryKey: ["tasksData", page, limit, filter],
