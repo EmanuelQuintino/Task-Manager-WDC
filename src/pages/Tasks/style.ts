@@ -41,7 +41,7 @@ export const Container = styled.main`
     }
 
     &::-webkit-scrollbar-thumb:hover {
-      background: ${({ theme }) => theme.colors.LIGHT400}AA;
+      background: ${({ theme }) => theme.colors.LIGHT400}88;
     }
   }
 
