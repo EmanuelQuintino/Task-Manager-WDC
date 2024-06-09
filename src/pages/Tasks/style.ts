@@ -26,23 +26,6 @@ export const Container = styled.main`
     place-content: start;
     gap: 1rem;
     padding-right: 0.6rem;
-
-    &::-webkit-scrollbar {
-      width: 0.5rem;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: ${({ theme }) => theme.colors.DARK200};
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: ${({ theme }) => theme.colors.LIGHT200}88;
-      border-radius: 0.8rem;
-    }
-
-    &::-webkit-scrollbar-thumb:hover {
-      background: ${({ theme }) => theme.colors.LIGHT400}88;
-    }
   }
 
   .paginationMobile {
@@ -66,10 +49,6 @@ export const Container = styled.main`
       height: 60vh;
       gap: 1rem;
       padding-right: 0.8rem;
-
-      &::-webkit-scrollbar {
-        width: 0.75rem;
-      }
     }
 
     .paginationMobile {

@@ -43,7 +43,7 @@ export function Tasks() {
       {isLoading && <span className="loading">Carregando...</span>}
       {!isLoading && error && <span className="loading">Erro!</span>}
 
-      <div className="tasksContainer">
+      <div className="tasksContainer scrollBar">
         {data?.length == 0 ? (
           <p className="loading">Sem tarefas para mostrar</p>
         ) : (
