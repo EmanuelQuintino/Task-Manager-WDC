@@ -7,14 +7,15 @@ export function About() {
         <section>
           <h2>Sobre a Task Manager</h2>
           <p>
-            A Task Manager é uma aplicação desenvolvida como projeto final para a
-            conclusão do{" "}
+            A Task Manager é uma aplicação Full Stack desenvolvida com{" "}
+            <a href="https://github.com/EmanuelQuintino/Task-Manager">React</a> e{" "}
+            <a href="https://github.com/EmanuelQuintino/Task-Manager-API">Node.js</a> para
+            a conclusão do Curso de Desenvolvimento Web ofertado pelo{" "}
             <a href="https://emanuelquintino.github.io/Page-WDC/" target="_blank">
-              Curso de Desenvolvimento Web
-            </a>{" "}
-            ofertado pelo Reprograma Jucás. Ela foi criado com o intuito de proporcionar
-            aos usuários uma ferramenta eficaz para gerenciar suas tarefas de forma
-            organizada e intuitiva.
+              Reprograma Jucás
+            </a>
+            . Ela foi criada com o intuito de proporcionar aos usuários uma ferramenta
+            eficaz para gerenciar suas tarefas de forma organizada e intuitiva.
           </p>
         </section>
 

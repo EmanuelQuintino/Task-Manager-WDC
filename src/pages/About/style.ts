@@ -47,6 +47,7 @@ export const Container = styled.div`
       color: ${({ theme }) => theme.colors.LIGHT200};
 
       a {
+        font-size: 1.4rem;
         color: ${({ theme }) => theme.colors.PRIMARY500};
         text-decoration: underline;
       }
@@ -91,6 +92,10 @@ export const Container = styled.div`
       p {
         margin-top: 1.6rem;
         font-size: 1.6rem;
+
+        a {
+          font-size: 1.6rem;
+        }
       }
     }
 
