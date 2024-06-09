@@ -25,7 +25,7 @@ export const Container = styled.main`
     display: grid;
     place-content: start;
     gap: 1rem;
-    padding-right: 0.8rem;
+    padding-right: 0.6rem;
 
     &::-webkit-scrollbar {
       width: 0.5rem;
@@ -46,7 +46,7 @@ export const Container = styled.main`
   }
 
   .paginationMobile {
-    margin-top: 2.4rem;
+    margin-top: 3.2rem;
   }
 
   @media (min-width: 768px) {
@@ -64,6 +64,8 @@ export const Container = styled.main`
 
     .tasksContainer {
       height: 60vh;
+      gap: 1rem;
+      padding-right: 0.8rem;
 
       &::-webkit-scrollbar {
         width: 0.75rem;
