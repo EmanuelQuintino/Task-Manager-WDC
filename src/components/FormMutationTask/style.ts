@@ -40,7 +40,7 @@ export const Container = styled.form`
 
   input[type="date"]::-webkit-calendar-picker-indicator,
   input[type="time"]::-webkit-calendar-picker-indicator {
-    filter: ${({ theme }) => theme.colors.LIGHT400};
+    filter: invert(0.9);
   }
 
   button {
