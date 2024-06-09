@@ -19,7 +19,7 @@ export const Container = styled.main`
   }
 
   .tasksContainer {
-    height: 65vh;
+    height: 60vh;
     overflow-y: auto;
     margin-top: 1.6rem;
     display: grid;
@@ -46,7 +46,7 @@ export const Container = styled.main`
   }
 
   .paginationMobile {
-    margin-top: 1.6rem;
+    margin-top: 2.4rem;
   }
 
   @media (min-width: 768px) {
@@ -64,7 +64,7 @@ export const Container = styled.main`
 
     .tasksContainer {
       height: 60vh;
-      gap: 1.2rem;
+      gap: 1rem;
       padding-right: 0.8rem;
 
       &::-webkit-scrollbar {
