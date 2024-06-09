@@ -19,13 +19,13 @@ export const Container = styled.main`
   }
 
   .tasksContainer {
-    height: 60vh;
+    height: 65vh;
     overflow-y: auto;
     margin-top: 1.6rem;
     display: grid;
     place-content: start;
     gap: 1rem;
-    padding-right: 0.4rem;
+    padding-right: 0.8rem;
 
     &::-webkit-scrollbar {
       width: 0.5rem;
@@ -64,8 +64,6 @@ export const Container = styled.main`
 
     .tasksContainer {
       height: 60vh;
-      gap: 1rem;
-      padding-right: 0.8rem;
 
       &::-webkit-scrollbar {
         width: 0.75rem;
