@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ModalHandleTask } from "../../components/ModalHandleTask";
+import { ModalTaskDetails } from "../../components/ModalTaskDetails";
 import { Pagination } from "../../components/Pagination";
 import { TaskCard } from "../../components/TaskCard";
 import { useQueryTasks } from "../../hooks/useQueryTasks";
@@ -8,11 +8,11 @@ import { TaskDataTypes } from "../../@types/tasks";
 import { useTask } from "../../hooks/useTask";
 
 export function Tasks() {
-  const [showModalHandleTask, setShowModalHandleTask] = useState(false);
+  const [showModalTaskDetails, setShowModalTaskDetails] = useState(false);
   const { setTaskData } = useTask();
 
   function toggleModal() {
-    setShowModalHandleTask((prevState) => (prevState == true ? false : true));
+    setShowModalTaskDetails((prevState) => (prevState == true ? false : true));
   }
 
   function addTaskToggleModal(task: TaskDataTypes) {
@@ -83,7 +83,7 @@ export function Tasks() {
         />
       </div>
 
-      {showModalHandleTask && <ModalHandleTask toggleModal={toggleModal} />}
+      {showModalTaskDetails && <ModalTaskDetails toggleModal={toggleModal} />}
     </Container>
   );
 }

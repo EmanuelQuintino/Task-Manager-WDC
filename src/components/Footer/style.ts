@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.footer`
   width: 100%;
-  height: 6rem;
+  height: 8rem;
   background: ${({ theme }) => theme.colors.PRIMARY700}22;
   box-shadow: 0 0 4px 4px #0002;
   display: flex;
@@ -14,6 +14,8 @@ export const Container = styled.footer`
   }
 
   @media (min-width: 768px) {
+    height: 6rem;
+
     strong {
       font-size: 1.4rem;
     }

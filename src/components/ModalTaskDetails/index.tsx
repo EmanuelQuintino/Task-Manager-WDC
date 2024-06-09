@@ -6,7 +6,7 @@ type HandleTaskProps = {
   toggleModal: () => void;
 };
 
-export function ModalHandleTask({ toggleModal }: HandleTaskProps) {
+export function ModalTaskDetails({ toggleModal }: HandleTaskProps) {
   function handleKeyUp(event: React.KeyboardEvent<HTMLDivElement>) {
     if (event.key == "Enter") {
       toggleModal();
