@@ -57,14 +57,9 @@ export const Container = styled.div`
     text-align: right;
   }
 
-  .deleteIcon {
-    font-size: 2.4rem;
-    cursor: pointer;
-  }
-
   @media (min-width: 768px) {
     width: calc(${({ theme }) => theme.size.MAIN_WIDTH_DESKTOP} + 5vw);
-    padding: 2.5rem;
+    padding: 2.4rem;
 
     .status {
       font-size: 0.8rem;
@@ -83,11 +78,6 @@ export const Container = styled.div`
     }
     span {
       font-size: 1.6rem;
-    }
-
-    .deleteIcon {
-      font-size: 2.4rem;
-      cursor: pointer;
     }
   }
 `;
