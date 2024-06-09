@@ -11,6 +11,9 @@ export function Tasks() {
   const [showModalTaskDetails, setShowModalTaskDetails] = useState(false);
   const { setTaskData } = useTask();
 
+  const { data, isLoading, error, changeLimit, page, totalPages, prevPage, nextPage } =
+    useQueryTasks();
+
   function toggleModal() {
     setShowModalTaskDetails((prevState) => (prevState == true ? false : true));
   }
@@ -19,9 +22,6 @@ export function Tasks() {
     toggleModal();
     setTaskData(task);
   }
-
-  const { data, isLoading, error, changeLimit, page, totalPages, prevPage, nextPage } =
-    useQueryTasks();
 
   return (
     <Container>
@@ -41,7 +41,7 @@ export function Tasks() {
       </div>
 
       {isLoading && <span className="loading">Carregando...</span>}
-      {!isLoading && error && <span className="loading">Erro...</span>}
+      {!isLoading && error && <span className="loading">Erro!</span>}
 
       <div className="tasksContainer">
         {data?.length == 0 ? (
