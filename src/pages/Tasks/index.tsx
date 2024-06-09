@@ -20,21 +20,8 @@ export function Tasks() {
     setTaskData(task);
   }
 
-  const {
-    data,
-    isLoading,
-    error,
-    changeLimit,
-    page,
-    changePage,
-    totalPages,
-    prevPage,
-    nextPage,
-  } = useQueryTasks();
-
-  if (totalPages > 0 && page > totalPages) {
-    changePage(totalPages);
-  }
+  const { data, isLoading, error, changeLimit, page, totalPages, prevPage, nextPage } =
+    useQueryTasks();
 
   return (
     <Container>

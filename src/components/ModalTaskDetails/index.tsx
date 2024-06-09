@@ -15,7 +15,7 @@ export function ModalTaskDetails({ toggleModal }: HandleTaskProps) {
 
   useEffect(() => {
     function handleKeyUp(event: KeyboardEvent) {
-      if (event.key === "Escape") {
+      if (event.key == "Escape") {
         toggleModal();
       }
     }
