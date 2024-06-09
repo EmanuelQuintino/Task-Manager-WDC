@@ -142,7 +142,11 @@ export function FormMutationTask({ isUpdate = false, toggleModal }: PropsToForm)
             <input
               type="date"
               placeholder="Escolha o dia que será realizada"
-              min={updateDate3HoursAgo(new Date()).toISOString().split("T")[0]}
+              min={
+                isUpdate
+                  ? undefined
+                  : updateDate3HoursAgo(new Date()).toISOString().split("T")[0]
+              }
               {...register("date", {
                 required: "Campo obrigatório",
               })}
