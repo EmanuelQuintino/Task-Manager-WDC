@@ -30,6 +30,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       pauseOnHover={true}
       position={"top-right"}
       pauseOnFocusLoss={false}
+      style={{ zIndex: 10001 }}
     />
   </React.StrictMode>
 );
