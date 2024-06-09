@@ -9,7 +9,7 @@ export const Container = styled.main`
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, 1fr);
-    gap: 2rem;
+    gap: 1.6rem;
     margin-top: 1.6rem;
   }
 
@@ -21,6 +21,7 @@ export const Container = styled.main`
     .statsContainer {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
+      gap: 2rem;
     }
   }
 `;
