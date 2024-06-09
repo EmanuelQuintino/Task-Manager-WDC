@@ -38,12 +38,9 @@ export const Container = styled.form`
     }
   }
 
-  input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(0.9);
-  }
-
+  input[type="date"]::-webkit-calendar-picker-indicator,
   input[type="time"]::-webkit-calendar-picker-indicator {
-    filter: invert(0.9);
+    filter: ${({ theme }) => theme.colors.LIGHT400};
   }
 
   button {
