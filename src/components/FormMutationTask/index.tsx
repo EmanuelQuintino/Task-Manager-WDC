@@ -110,7 +110,7 @@ export function FormMutationTask({ isUpdate = false, toggleModal }: PropsToForm)
           <input
             type="text"
             placeholder="digite o título da tarefa"
-            autoFocus
+            autoFocus={!isUpdate}
             {...register("title", {
               required: "Campo obrigatório",
               minLength: { value: 3, message: "Mínimo de 3 caracteres" },
