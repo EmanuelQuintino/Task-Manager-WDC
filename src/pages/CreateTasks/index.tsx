@@ -5,7 +5,10 @@ export function CreateTasks() {
   return (
     <Container>
       <h2>Adicionar Tarefa</h2>
-      <FormMutationTask />
+
+      <div className="formContainer">
+        <FormMutationTask />
+      </div>
     </Container>
   );
 }
