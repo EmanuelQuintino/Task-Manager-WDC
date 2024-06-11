@@ -6,10 +6,13 @@ The Task Manager is a `Full-Stack` Web Application developed as a final project 
 
 ## Features
 
-- Integration with API
-- Listing and pagination with all Tasks
-- Search field when typing filter
-- Application Deployment
+- User registration and authentication with JWT tokens
+- Task Management: ADD, EDIT and DELETE tasks
+- Task history and listing tasks with pagination
+- Statistics and report with totals by status
+- Task filtering by status
+- Integration with own API
+- Application deployment
 
 ## Technologies
 
