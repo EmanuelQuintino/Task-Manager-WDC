@@ -10,7 +10,7 @@ export const Container = styled.div`
   transition: 100ms;
 
   &:hover {
-    filter: brightness(1.2);
+    filter: brightness(1.1);
     cursor: pointer;
   }
 
