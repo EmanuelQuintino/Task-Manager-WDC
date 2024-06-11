@@ -70,6 +70,16 @@ export const GlobalStyles = createGlobalStyle`
     inset: 0;
   }
 
+  .queryError {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: ${({ theme }) => theme.colors.COMPLEMENTARY500};
+    display: grid;
+    place-content: center;
+    position: absolute;
+    inset: 0;
+  }
+
   .scrollBar {
     &::-webkit-scrollbar {
       width: 0.5rem;
@@ -96,7 +106,11 @@ export const GlobalStyles = createGlobalStyle`
 
     .loading {
       font-size: 1.4rem;
-    } 
+    }
+
+    .queryError {
+      font-size: 1.4rem;
+    }
 
     .scrollBar {
       &::-webkit-scrollbar {
