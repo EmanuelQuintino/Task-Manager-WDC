@@ -15,12 +15,14 @@ export function About() {
             <a href="https://github.com/EmanuelQuintino/Task-Manager-API" target="_blank">
               Node.js
             </a>{" "}
-            para a conclusão do Curso de Desenvolvimento Web ofertado pelo{" "}
+            , usando as arquiteturas de SPA (Single Page Application) e de API RESTfull
+            (Representational State Transfer), para a conclusão do Curso de
+            Desenvolvimento Web ofertado pelo{" "}
             <a href="https://emanuelquintino.github.io/Page-WDC/" target="_blank">
               Reprograma Jucás
             </a>
-            . Ela foi criada com o intuito de proporcionar aos usuários uma ferramenta
-            para gerenciar e monitorar suas tarefas de forma organizada e intuitiva.
+            . Nela os usuários têm mecanismos para gerenciar e monitorar suas tarefas de
+            forma organizada e intuitiva.
           </p>
         </section>
 
