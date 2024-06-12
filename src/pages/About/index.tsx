@@ -21,11 +21,8 @@ export function About() {
             <a href="https://emanuelquintino.github.io/Page-WDC/" target="_blank">
               Reprograma Jucás
             </a>
-            .
-            <p>
-              Nela os usuários dispõem de ferramentas para gerenciar, monitorar e gerar
-              relatórios das suas tarefas de forma organizada e intuitiva.
-            </p>
+            . Nela os usuários dispõem de ferramentas para gerenciar, monitorar e gerar
+            relatórios das suas tarefas de forma organizada e intuitiva.
           </p>
         </section>
 
