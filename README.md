@@ -2,7 +2,7 @@
 
 Task Manager is a Full-Stack application developed in `React` and `Node.js` to complete the [Web Development Course](https://emanuelquintino.github.io/Page-WDC/) offered by `Reprograma Jucás`. It was created with the aim of providing users with a tool to manage and monitor their tasks in an organized and intuitive way.
 
-![home-layout](./src/assets/login-layout.png)
+![home-layout](./src/assets/home-layout.png)
 
 ## Features
 
