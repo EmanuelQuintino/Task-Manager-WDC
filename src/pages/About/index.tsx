@@ -14,9 +14,9 @@ export function About() {
             e{" "}
             <a href="https://github.com/EmanuelQuintino/Task-Manager-API" target="_blank">
               Node.js
-            </a>{" "}
-            , usando as arquiteturas SPA (Single Page Application) e API RESTfull
-            (Representational State Transfer), para a conclusão do Curso de
+            </a>
+            , Usando o conceito de SPA (Single Page Application) e a arquitetura RESTful
+            API (Representational State Transfer), para a conclusão do Curso de
             Desenvolvimento Web ofertado pelo{" "}
             <a href="https://emanuelquintino.github.io/Page-WDC/" target="_blank">
               Reprograma Jucás
