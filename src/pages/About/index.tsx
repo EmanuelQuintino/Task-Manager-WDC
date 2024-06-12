@@ -5,7 +5,7 @@ export function About() {
     <Container className="scrollBar">
       <article>
         <section>
-          <h2>Sobre a Task Manager</h2>
+          <h2>Sobre a Task Manager do Reprograma Jucás</h2>
           <p>
             A Task Manager é uma aplicação Full Stack desenvolvida com{" "}
             <a href="https://github.com/EmanuelQuintino/Task-Manager" target="_blank">
@@ -20,7 +20,7 @@ export function About() {
               Reprograma Jucás
             </a>
             . Ela foi criada com o intuito de proporcionar aos usuários uma ferramenta
-            eficaz para gerenciar suas tarefas de forma organizada e intuitiva.
+            para gerenciar e monitorar suas tarefas de forma organizada e intuitiva.
           </p>
         </section>
 
