@@ -6,13 +6,13 @@ Task Manager is a `Full Stack` application developed in `React` and `Node.js` to
 
 ## Features
 
-- User registration and authentication with JWT tokens
-- Task Management: ADD, EDIT and DELETE tasks
-- Task history and listing tasks with pagination
-- Statistics and report with totals by status
-- Task filtering by status
-- Integration with own API
-- Application deployment
+- User registration and authentication with `JWT tokens`
+- Task Management: `ADD`, `EDIT` and `DELETE` tasks
+- Task history and listing tasks with `pagination`
+- Statistics and `report` with totals by status
+- Task `filtering` by status
+- Integration with own `RESTfull API`
+- Application `deployment`
 
 ## Technologies
 
