@@ -15,14 +15,15 @@ export function About() {
             <a href="https://github.com/EmanuelQuintino/Task-Manager-API" target="_blank">
               Node.js
             </a>
-            , Usando o conceito de SPA (Single Page Application) e a arquitetura RESTful
+            , usando o conceito de SPA (Single Page Application) e a arquitetura RESTful
             API (Representational State Transfer), para a conclusão do Curso de
             Desenvolvimento Web ofertado pelo{" "}
             <a href="https://emanuelquintino.github.io/Page-WDC/" target="_blank">
               Reprograma Jucás
             </a>
-            . Nela os usuários dispõem de ferramentas para gerenciar, monitorar e gerar
-            relatórios das suas tarefas de forma organizada e intuitiva.
+            . Nela os usuários dispõem de uma interface com ferramentas para gerenciar,
+            monitorar e gerar relatórios das suas tarefas de forma organizada e intuitiva,
+            além de contar também com sua versão responsiva para uso em celulares.
           </p>
         </section>
 
