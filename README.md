@@ -46,5 +46,5 @@ VITE_STORAGE_USERID_KEY=""
 
 ## Links
 
-- [Deploy](https://task-manager-seven-indol.vercel.app/)
+- [Deploy](https://task-manager-wdc.vercel.app/)
 - [API Repository](https://github.com/EmanuelQuintino/Task-Manager-API)
