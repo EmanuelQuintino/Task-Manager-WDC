@@ -1,6 +1,6 @@
 # Task Manager WDC - Reprograma Jucás
 
-Task Manager is a Full Stack application developed to complete the [Web Development Course](https://emanuelquintino.github.io/Page-WDC/) offered by `Reprograma Jucás`, using `React` and `Node.js`, with the concept of SPA (Single Page Application) and the RESTful API (Representational State Transfer) architecture. Users have an interface to manage and monitor their tasks in an organized and intuitive way, as well as a responsive version for use on cell phones.
+Task Manager is a Full-Stack application developed in `React` and `Node.js` to complete the [Web Development Course](https://emanuelquintino.github.io/Page-WDC/) offered by `Reprograma Jucás`. It was created with tools for users to manage, monitor and generate reports on their tasks in an organized and intuitive way, in addition to having a responsive version for use on cell phones.
 
 ![home-layout](./src/assets/home-layout.png)
 
