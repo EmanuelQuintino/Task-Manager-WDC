@@ -28,9 +28,8 @@ export function About() {
             </a>
             , com o conceito de SPA (Single Page Application) e a arquitetura RESTful API
             (Representational State Transfer). Nela os usuários dispõem de uma interface
-            com ferramentas para gerenciar, monitorar e gerar relatórios das suas tarefas
-            de forma organizada e intuitiva, além de contar também com sua versão
-            responsiva para uso em celulares.
+            para gerenciar e monitorar suas tarefas de forma organizada e intuitiva, além
+            de contar também com sua versão responsiva para uso em celulares.
           </p>
         </section>
 
