@@ -8,11 +8,17 @@ export function About() {
           <h2>Sobre a Task Manager do Reprograma Jucás</h2>
           <p>
             A Task Manager é uma aplicação Full Stack desenvolvida com{" "}
-            <a href="https://github.com/EmanuelQuintino/Task-Manager" target="_blank">
+            <a
+              href="https://github.com/EmanuelQuintino/Task-Manager-WDC/"
+              target="_blank"
+            >
               React
             </a>{" "}
             e{" "}
-            <a href="https://github.com/EmanuelQuintino/Task-Manager-API" target="_blank">
+            <a
+              href="https://github.com/EmanuelQuintino/Task-Manager-WDC-API/"
+              target="_blank"
+            >
               Node.js
             </a>
             , usando o conceito de SPA (Single Page Application) e a arquitetura RESTful
