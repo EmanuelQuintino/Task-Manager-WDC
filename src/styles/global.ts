@@ -6,7 +6,7 @@ export const GlobalStyles = createGlobalStyle`
     scroll-behavior: smooth;
   }
   
-  * {
+  *, input, select, textarea {
     margin: 0;
     padding: 0;
     box-sizing: border-box;

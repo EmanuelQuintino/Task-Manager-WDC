@@ -8,10 +8,10 @@ export const Container = styled.div`
   display: grid;
   place-content: start;
   text-align: justify;
+  padding-right: 0.8rem;
 
   &::-webkit-scrollbar {
-    width: 0;
-    -ms-overflow-style: none;
+    width: 0.4rem;
   }
 
   article {
