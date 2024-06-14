@@ -20,6 +20,11 @@ export const GlobalStyles = createGlobalStyle`
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    &:focus {
+      outline: transparent;
+      box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.LIGHT400}
+    }
   }
 
   body {
