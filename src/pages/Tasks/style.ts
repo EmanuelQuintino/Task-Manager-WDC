@@ -8,6 +8,7 @@ export const Container = styled.main`
     align-items: center;
     justify-content: space-between;
     width: calc(${({ theme }) => theme.size.MAIN_WIDTH_MOBILE} + 5vw);
+    padding-left: 0.6rem;
   }
 
   h2 {
@@ -25,7 +26,7 @@ export const Container = styled.main`
     display: grid;
     place-content: start;
     gap: 1rem;
-    padding-right: 0.6rem;
+    padding: 0.6rem;
   }
 
   .paginationMobile {
