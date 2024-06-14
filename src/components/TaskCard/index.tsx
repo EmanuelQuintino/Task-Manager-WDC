@@ -4,10 +4,9 @@ import { Container } from "./style";
 type PropsTypes = {
   data: TaskDataTypes;
   onClick: () => void;
-  index: number;
 };
 
-export function TaskCard({ data, onClick, index }: PropsTypes) {
+export function TaskCard({ data, onClick }: PropsTypes) {
   const { title, description, date, status } = data;
 
   const isCompleted = status == "completed";
@@ -22,7 +21,7 @@ export function TaskCard({ data, onClick, index }: PropsTypes) {
   }
 
   return (
-    <Container onClick={onClick} onKeyUp={handleKeyUp} tabIndex={index}>
+    <Container onClick={onClick} onKeyUp={handleKeyUp} tabIndex={0}>
       <div className={`status ${taskStatus}`}>{taskStatus}</div>
 
       <div className="taskDetails">

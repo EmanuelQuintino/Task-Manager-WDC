@@ -47,12 +47,11 @@ export function Tasks() {
         {data?.length == 0 ? (
           <p className="loading">Sem tarefas para mostrar</p>
         ) : (
-          data?.map((task, index) => {
+          data?.map((task) => {
             return (
               <TaskCard
                 data={task}
                 key={task.id}
-                index={index}
                 onClick={() => addTaskToggleModal(task)}
               />
             );
