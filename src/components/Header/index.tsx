@@ -28,12 +28,10 @@ export function Header() {
         menu
       </i>
 
-      <div className="appLogo">
+      <Link to={"/"} className="appLogo">
         <h1>Task Manager</h1>
-        <Link to={"https://emanuelquintino.github.io/Page-WDC/"} target="_blank">
-          <img src={logoRJ} alt="logo rj rprograma jucás" />
-        </Link>
-      </div>
+        <img src={logoRJ} alt="logo rj reprograma jucás" />
+      </Link>
 
       {showSideBar && <SideBar toggleSideBar={toggleSideBar} />}
     </Container>
