@@ -14,10 +14,10 @@ export const TaskContext = createContext({} as TaskContextProps);
 
 export const TaskProvider = ({ children }: { children: ReactNode }) => {
   const [taskData, setTaskData] = useState({} as TaskDataTypes);
-  const [isLoading, setIsloading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   async function deleteTask(id: string) {
-    setIsloading(true);
+    setIsLoading(true);
     return await API.delete(`/task/${id}`)
       .then((response) => {
         if (response.status == 200) {
@@ -33,7 +33,7 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
         );
       })
       .finally(() => {
-        setIsloading(false);
+        setIsLoading(false);
       });
   }
 
