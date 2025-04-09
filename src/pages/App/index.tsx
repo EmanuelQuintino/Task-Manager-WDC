@@ -13,9 +13,7 @@ export function App() {
         <section className="sideBar">
           <SideBar />
         </section>
-
-        <Outlet />
-        {/* outlet is main pages */}
+        <Outlet /> {/* outlet is main pages */}
       </article>
 
       <Footer />
