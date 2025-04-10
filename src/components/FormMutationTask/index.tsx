@@ -90,13 +90,15 @@ export function FormMutationTask({ isUpdate = false, toggleModal }: PropsToForm)
 
   useEffect(() => {
     if (isUpdate) {
+      const dateObj = updateDate3HoursAgo(new Date(taskData.date));
+      const formattedDate = dateObj.toISOString().split("T")[0]; // YYYY-MM-DD
+      const formattedTime = dateObj.toISOString().split("T")[1].slice(0, 5); // HH:MM
+
       reset({
         title: taskData.title || "",
         description: taskData.description || "",
-        date: taskData.date ? new Date(taskData.date).toISOString().split("T")[0] : "",
-        time: taskData.date
-          ? new Date(taskData.date).toISOString().split("T")[1].slice(0, 5)
-          : "",
+        date: formattedDate,
+        time: formattedTime,
         status: taskData.status || "pending",
       });
     }

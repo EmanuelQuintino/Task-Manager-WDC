@@ -5,12 +5,11 @@ type ButtonTypes = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   title: string;
   loading?: boolean;
   variant?: ButtonStyleType;
-  onClick?: () => void;
 };
 
 export function Button({
   title,
-  type = "submit",
+  type = "button",
   loading = false,
   variant = "PRIMARY700",
   onClick,
