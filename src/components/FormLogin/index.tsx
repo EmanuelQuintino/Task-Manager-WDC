@@ -32,6 +32,7 @@ export function FormLogin() {
           <label>
             Email:
             <input
+              autoFocus
               type="email"
               placeholder="exemplo@email.com"
               {...register("email", {

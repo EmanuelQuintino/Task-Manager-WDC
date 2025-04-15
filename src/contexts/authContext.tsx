@@ -1,6 +1,6 @@
 import { PropsWithChildren, createContext, useState, useEffect } from "react";
-import { API } from "../configs/api";
 import { STORAGE_USERID_KEY } from "../utils/userIdAuthKey";
+import { API } from "../configs/api";
 
 export type SignInTypes = {
   email: string;
@@ -16,8 +16,8 @@ export type SignUpTypes = {
 type AuthContextTypes = {
   signIn: (params: SignInTypes) => Promise<boolean | void>;
   signUp: (params: SignUpTypes) => Promise<boolean | void>;
-  authUserID: string;
   signOut: () => void;
+  authUserID: string;
   isLoading: boolean;
 };
 
@@ -55,7 +55,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
 
   async function signUp({ name, email, password }: SignUpTypes) {
     if (!name || !email || !password)
-      throw alert("Por favor informar name, email e senha!");
+      throw alert("Por favor informar nome, email e senha!");
 
     setIsLoading(true);
 
