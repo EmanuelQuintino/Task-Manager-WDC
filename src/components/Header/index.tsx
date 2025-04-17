@@ -7,13 +7,13 @@ import { SideBar } from "../SideBar";
 export function Header() {
   const [showSideBar, setShowSideBar] = useState(false);
 
-  function toggleSideBar() {
+  function handleToggleSideBar() {
     setShowSideBar((prevState) => (prevState == true ? false : true));
   }
 
   function handleKeyUp(event: React.KeyboardEvent<HTMLDivElement>) {
     if (event.key === "Enter") {
-      toggleSideBar();
+      handleToggleSideBar();
     }
   }
 
@@ -21,7 +21,7 @@ export function Header() {
     <Container>
       <i
         className="material-icons menuIcon"
-        onClick={toggleSideBar}
+        onClick={handleToggleSideBar}
         onKeyUp={handleKeyUp}
         tabIndex={0}
       >
@@ -33,7 +33,7 @@ export function Header() {
         <img src={logoRJ} alt="logo rj reprograma jucás" />
       </Link>
 
-      {showSideBar && <SideBar toggleSideBar={toggleSideBar} />}
+      {showSideBar && <SideBar handleToggleSideBar={handleToggleSideBar} />}
     </Container>
   );
 }

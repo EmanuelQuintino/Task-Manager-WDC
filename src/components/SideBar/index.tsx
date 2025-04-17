@@ -4,14 +4,14 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 
 type SideBarProps = {
-  toggleSideBar?: () => void;
+  handleToggleSideBar?: () => void;
 };
 
-export function SideBar({ toggleSideBar }: SideBarProps) {
+export function SideBar({ handleToggleSideBar }: SideBarProps) {
   const { signOut } = useAuth();
   const navigate = useNavigate();
 
-  function logoutApp() {
+  function handleLogoutApp() {
     const resp = confirm("Deseja sair da aplicação?");
     if (resp) {
       signOut();
@@ -21,36 +21,36 @@ export function SideBar({ toggleSideBar }: SideBarProps) {
 
   function handleKeyUp(event: React.KeyboardEvent<HTMLDivElement>) {
     if (event.key == "Enter") {
-      logoutApp();
+      handleLogoutApp();
     }
   }
 
   return (
-    <Container onClick={toggleSideBar}>
-      <div className="asideMenu" onClick={toggleSideBar}>
-        <i className="material-icons closeIcon" onClick={toggleSideBar}>
+    <Container onClick={handleToggleSideBar}>
+      <div className="asideMenu" onClick={handleToggleSideBar}>
+        <i className="material-icons closeIcon" onClick={handleToggleSideBar}>
           close
         </i>
 
         <nav>
           <ul>
-            <NavLink to={"/"} onClick={toggleSideBar}>
+            <NavLink to={"/"} onClick={handleToggleSideBar}>
               <MenuItem title="Home" icon="home" />
             </NavLink>
 
-            <NavLink to={"/tasks?filter=all&page=1"} onClick={toggleSideBar}>
+            <NavLink to={"/tasks?filter=all&page=1"} onClick={handleToggleSideBar}>
               <MenuItem title="Tarefas" icon="task" />
             </NavLink>
 
-            <NavLink to={"/create-tasks"} onClick={toggleSideBar}>
+            <NavLink to={"/create-tasks"} onClick={handleToggleSideBar}>
               <MenuItem title="Adicionar" icon="add_circle" />
             </NavLink>
 
-            <NavLink to={"/about"} onClick={toggleSideBar}>
+            <NavLink to={"/about"} onClick={handleToggleSideBar}>
               <MenuItem title="Sobre" icon="info" />
             </NavLink>
 
-            <div onClick={logoutApp} onKeyUp={handleKeyUp} tabIndex={0}>
+            <div onClick={handleLogoutApp} onKeyUp={handleKeyUp} tabIndex={0}>
               <MenuItem title="Sair" icon="exit_to_app" />
             </div>
           </ul>
