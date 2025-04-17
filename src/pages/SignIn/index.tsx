@@ -4,6 +4,7 @@ import logoReprogramaJucas from "../../assets/logo-reprograma-jucas.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { useEffect, useState } from "react";
+import { STORAGE_USERID_KEY } from "../../utils/userIdAuthKey";
 
 export function SignIn() {
   const navigate = useNavigate();
@@ -18,7 +19,9 @@ export function SignIn() {
     return () => clearTimeout(timer);
   }, []);
 
-  if (delay) {
+  const authUserIDStorage = localStorage.getItem(STORAGE_USERID_KEY);
+
+  if (delay && authUserIDStorage) {
     return null;
   }
 
