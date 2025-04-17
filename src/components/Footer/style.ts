@@ -10,12 +10,16 @@ export const Container = styled.footer`
   justify-content: center;
 
   strong {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+
+    .copyIcon {
+      font-weight: 400;
+    }
   }
 
   @media (min-width: 768px) {
     strong {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
     }
   }
 `;
