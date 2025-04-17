@@ -61,7 +61,7 @@ export function FormLogin() {
           <span className="inputError">{errors.password?.message}</span>
         </section>
 
-        <Button title={"Login"} loading={isLoading} />
+        <Button type="submit" title={"Login"} loading={isLoading} />
       </form>
     </Container>
   );

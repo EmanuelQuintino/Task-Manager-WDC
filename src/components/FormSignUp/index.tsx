@@ -94,7 +94,12 @@ export function FormSignUp() {
           <span className="inputError">{errors.password?.message}</span>
         </section>
 
-        <Button title={"Finalizar"} variant="PRIMARY500" loading={isLoading} />
+        <Button
+          type="submit"
+          title={"Finalizar"}
+          variant="PRIMARY500"
+          loading={isLoading}
+        />
       </form>
     </Container>
   );
