@@ -1,12 +1,11 @@
 import { CardStyleType, Container } from "./style";
 
-type StatsCardProps = {
+type StatsCardProps = React.HTMLAttributes<HTMLDivElement> & {
   title: string;
   icon: string;
   number?: number;
   total?: number;
   variant?: CardStyleType;
-  onClick?: () => void;
 };
 
 export function StatsCard({
