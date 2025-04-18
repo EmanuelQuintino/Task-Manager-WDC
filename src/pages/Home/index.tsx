@@ -4,7 +4,7 @@ import { useQueryUser } from "../../hooks/useQueryUser";
 import { Container } from "./style";
 
 export function Home() {
-  const { data } = useQueryUser();
+  const userQuery = useQueryUser();
 
   return (
     <Container>
@@ -13,11 +13,11 @@ export function Home() {
       <div className="statsContainer">
         <NavLink to={"/tasks?filter=completed&page=1"}>
           <StatsCard
-            title="Completadas"
+            title="Concluídas"
             icon="task_alt"
             variant="completed"
-            number={data?.tasksInfo.completed}
-            total={data?.tasksInfo.total}
+            number={userQuery.data?.tasksInfo.completed}
+            total={userQuery.data?.tasksInfo.total}
           />
         </NavLink>
 
@@ -26,8 +26,8 @@ export function Home() {
             title="Pendentes"
             icon="pending_actions"
             variant="pending"
-            number={data?.tasksInfo.pending}
-            total={data?.tasksInfo.total}
+            number={userQuery.data?.tasksInfo.pending}
+            total={userQuery.data?.tasksInfo.total}
           />
         </NavLink>
 
@@ -36,8 +36,8 @@ export function Home() {
             title="Atrasadas"
             icon="event_busy"
             variant="late"
-            number={data?.tasksInfo.late}
-            total={data?.tasksInfo.total}
+            number={userQuery.data?.tasksInfo.late}
+            total={userQuery.data?.tasksInfo.total}
           />
         </NavLink>
 
@@ -46,7 +46,7 @@ export function Home() {
             title="Total"
             icon="query_stats"
             variant="neutral"
-            number={data?.tasksInfo.total}
+            number={userQuery.data?.tasksInfo.total}
           />
         </NavLink>
       </div>
