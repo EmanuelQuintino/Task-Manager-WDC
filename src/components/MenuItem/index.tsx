@@ -1,6 +1,6 @@
 import { Container } from "./style";
 
-type MenuItemProps = React.ButtonHTMLAttributes<HTMLLIElement> & {
+type MenuItemProps = React.LiHTMLAttributes<HTMLLIElement> & {
   title: string;
   icon: string;
 };
