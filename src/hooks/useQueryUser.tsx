@@ -6,8 +6,9 @@ import { UserDataTypes } from "../@types/user";
 export function useQueryUser() {
   const query = useQuery({
     queryKey: ["userData"],
-    queryFn: async (): AxiosPromise<UserDataTypes> =>
-      await API.get<UserDataTypes>("/user"),
+    queryFn: async (): AxiosPromise<UserDataTypes> => {
+      return await API.get<UserDataTypes>("/user");
+    },
   });
 
   const refetchQueryUser = async () => await query.refetch();
