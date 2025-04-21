@@ -72,9 +72,14 @@ export const Container = styled.div`
     .signUpLogo {
       flex: 1;
       text-align: center;
+      background: ${({ theme }) => theme.colors.DARK500};
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
 
       div {
-        text-align: left;
         width: 42rem;
         margin: 0 auto;
       }

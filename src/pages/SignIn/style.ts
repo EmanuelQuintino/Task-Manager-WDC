@@ -53,11 +53,17 @@ export const Container = styled.div`
     .signInLogo {
       flex: 1;
       text-align: center;
+      background: ${({ theme }) => theme.colors.DARK500};
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
 
       div {
         text-align: left;
         width: 42rem;
-        margin: 0 auto;
+        margin: 2.4rem auto 0;
       }
 
       h1 {
