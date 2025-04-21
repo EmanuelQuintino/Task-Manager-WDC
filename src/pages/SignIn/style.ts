@@ -63,7 +63,7 @@ export const Container = styled.div`
       div {
         text-align: left;
         width: 42rem;
-        margin: 4.8rem auto 0;
+        margin: 3.2rem auto 0;
       }
 
       h1 {
@@ -78,7 +78,7 @@ export const Container = styled.div`
 
     .signInForm {
       flex: 1;
-      margin-top: 7.6rem;
+      margin-top: 5.6rem;
 
       h2 {
         font-size: 2.4rem;
