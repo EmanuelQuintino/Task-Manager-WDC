@@ -44,7 +44,7 @@ export function SignIn() {
         <div className="messageChangePage">
           <span>Não tem uma conta? </span>
           <button onClick={() => navigate("/sign-up")} disabled={isLoading}>
-            Registre-se
+            Cadastro
           </button>
         </div>
       </div>
