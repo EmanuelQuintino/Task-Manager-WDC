@@ -41,7 +41,10 @@ export function Tasks() {
       </div>
 
       {isLoading && <span className="loading">Carregando...</span>}
-      {!isLoading && error && <span className="queryError">Erro!</span>}
+      
+      {!isLoading && error && (
+        <span className="queryError">Erro na requisição das tarefas!</span>
+      )}
 
       <div className="tasksContainer scrollBar">
         {data?.length == 0 ? (
