@@ -2,11 +2,11 @@ import { Container } from "./style";
 import { FormMutationTask } from "../FormMutationTask";
 import { useEffect } from "react";
 
-type HandleTaskProps = {
+type ModalTaskDetailsProps = {
   toggleModal: () => void;
 };
 
-export function ModalTaskDetails({ toggleModal }: HandleTaskProps) {
+export function ModalTaskDetails({ toggleModal }: ModalTaskDetailsProps) {
   function handleKeyUp(event: React.KeyboardEvent<HTMLDivElement>) {
     if (event.key == "Enter") {
       toggleModal();
@@ -42,6 +42,7 @@ export function ModalTaskDetails({ toggleModal }: HandleTaskProps) {
               close
             </i>
           </div>
+
           <FormMutationTask isUpdate={true} toggleModal={toggleModal} />
         </div>
       </div>
