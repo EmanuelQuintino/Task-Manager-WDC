@@ -19,6 +19,7 @@ export const useTaskUpdate = () => {
       }
     },
     onError: (error: AxiosError<{ message: string }>) => {
+      console.error(error);
       toast.dismiss();
       toast.error(
         error.response?.data?.message || "Erro inesperado ao atualizar tarefa!"

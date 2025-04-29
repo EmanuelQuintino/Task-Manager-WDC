@@ -27,6 +27,7 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
         }
       })
       .catch((error) => {
+        console.error(error);
         toast.dismiss();
         toast.error(
           error.response?.data?.message || "Erro inesperado ao remover tarefa!"
