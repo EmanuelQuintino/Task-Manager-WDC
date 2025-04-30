@@ -53,8 +53,8 @@ export function Tasks() {
           data?.map((task) => {
             return (
               <TaskCard
-                data={task}
                 key={task.id}
+                data={task}
                 onClick={() => addTaskToggleModal(task)}
               />
             );
